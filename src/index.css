@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Pacifico&family=Poppins:wght@200;300&family=Roboto+Condensed&family=Roboto:wght@300;500&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Roboto', Courier, monospace;
+    font-weight: 400;
+}
+html{
+    font-size: 16px;
+}
+i{
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+li{
+    list-style: none;
+    
+}
+a{
+    text-decoration: none;
+    color: unset;
+}

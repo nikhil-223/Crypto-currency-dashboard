@@ -1,0 +1,14 @@
+.currency-dropdown{
+    grid-area:1/1/2/2 ;
+    display: flex;
+    place-content: center;
+    
+    &>div{
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    align-items: center;
+    cursor: pointer;  
+    }
+    
+}
