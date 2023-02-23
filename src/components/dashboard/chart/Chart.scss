@@ -9,7 +9,7 @@
 	grid-area: 2/1/3/4;
 	padding: 0.3rem 1rem 1rem 1rem;
 	@include display-flex(column, center, center);
-    gap: 0.2rem;
+	gap: 0.2rem;
 
 	&__menu {
 		height: 20%;
@@ -25,12 +25,12 @@
 			&__item {
 				width: 3.5rem;
 				height: 2.2rem;
-				@include display-flex(row,center ,center );
+				@include display-flex(row, center, center);
 				padding: 0.5rem;
 				border-radius: 0.3rem;
 				background-color: #f1f2f7;
 				// box-shadow: 0.05rem 0.05rem 0.2rem 0 grey;
-                cursor: pointer;
+				cursor: pointer;
 			}
 		}
 
@@ -39,20 +39,103 @@
 			height: 100%;
 			@include display-flex(row, center, center);
 			gap: 1rem;
+			user-select: none;
 
 			& > div {
 				width: 12rem;
 				height: 2.8rem;
 				border-radius: 0.4rem;
 				box-shadow: 0.1rem 0.1rem 0.25rem 0 rgb(210, 201, 201);
-                @include display-flex(row,space-evenly ,center );
-                gap:1rem;
-                cursor: pointer;
+				@include display-flex(row, space-evenly, center);
+				gap: 1rem;
+				cursor: pointer;
 			}
 
-            &__chart-type{
-                margin-right: 1rem;
-            }
+			&__crypto {
+				&__list {
+					overflow: hidden;
+					display: flex;
+					flex-direction: column;
+					justify-content: flex-start;
+					align-items: center;
+
+					position: absolute;
+					overflow-y: scroll;
+
+					&::-webkit-scrollbar {
+						width: 0.3rem;
+					}
+
+					/* Track */
+					&::-webkit-scrollbar-track {
+						background: #ede5e5;
+						border-radius: 0rem 0.2rem 0.2rem 0rem;
+					}
+
+					/* Handle */
+					&::-webkit-scrollbar-thumb {
+						background: #5a4e4e;
+						border-radius: 0rem 0.2rem 0.2rem 0rem;
+						cursor: pointer;
+					}
+
+					/* Handle on hover */
+					&::-webkit-scrollbar-thumb:hover {
+						background: #921616;
+					}
+
+					top: 11rem;
+					left: 42rem;
+					width: 9rem;
+					height: 10rem;
+					border-radius: 0.3rem;
+					box-shadow: 0.1rem 0.1rem 0.5rem grey;
+				}
+			}
+
+			&__chart-type {
+				margin-right: 1rem;
+
+				&__list {
+					overflow: hidden;
+					display: flex;
+					flex-direction: column;
+					justify-content: flex-start;
+					align-items: center;
+
+					position: absolute;
+					overflow-y: scroll;
+
+					&::-webkit-scrollbar {
+						width: 0.3rem;
+					}
+
+					/* Track */
+					&::-webkit-scrollbar-track {
+						background: #ede5e5;
+						border-radius: 0rem 0.2rem 0.2rem 0rem;
+					}
+
+					/* Handle */
+					&::-webkit-scrollbar-thumb {
+						background: #5a4e4e;
+						border-radius: 0rem 0.2rem 0.2rem 0rem;
+						cursor: pointer;
+					}
+
+					/* Handle on hover */
+					&::-webkit-scrollbar-thumb:hover {
+						background: #921616;
+					}
+
+					top: 11rem;
+					left: 55rem;
+					width: 9rem;
+					height: 10rem;
+					border-radius: 0.3rem;
+					box-shadow: 0.1rem 0.1rem 0.5rem grey;
+				}
+			}
 		}
 	}
 
@@ -60,7 +143,6 @@
 		width: 100%;
 		height: 85%;
 		background-color: aquamarine;
-        box-shadow:inset 0.1rem 0.1rem 0.2rem 0rem rgb(163, 157, 157);
-
+		box-shadow: inset 0.1rem 0.1rem 0.2rem 0rem rgb(163, 157, 157);
 	}
 }
