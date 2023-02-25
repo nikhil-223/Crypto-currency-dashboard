@@ -1,10 +1,23 @@
-import React from 'react'
-import './ChartTypeItem.scss'
+import React, { useContext } from "react";
+import CoinContext from "../../../../context/CoinContext";
+import "./ChartTypeItem.scss";
 
-const ChartTypeItem = () => {
-  return (
-    <div className='chartTypeItem'>ChartTypeItem</div>
-  )
-}
+const ChartTypeItem = (props) => {
+  const { setChartDropName,theme } = useContext(CoinContext);
+  const { graph } = props;
+  const handleClick =(e)=>{
 
-export default ChartTypeItem
+    setChartDropName(e.target.innerHTML);
+  }
+	return (
+		<div
+			className={`chartTypeItem bg-droplist-${
+				theme === "light" ? "light" : "dark"
+			} text-${theme === "light" ? "dark" : "light"}`}
+			onClick={handleClick}>
+			{graph}
+		</div>
+	);
+};
+
+export default ChartTypeItem;

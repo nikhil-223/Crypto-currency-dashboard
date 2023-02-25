@@ -4,25 +4,47 @@
 	justify-content: $justify;
 	align-items: $align;
 }
-.market-item{
-    width: 100%;
-    height: 5rem;
-    padding: 1.5rem;
-    border-bottom: 0.02rem solid #efdada;
-    @include display-flex(row, space-between, center);
-    
-    
-    &__detail{
-        color: #08085c;
-        @include display-flex(column, center, flex-start);
-        gap: 0.5rem;
-        
-    }
+.market-item {
+	width: 100%;
+	height: 5rem;
+	padding: 1.5rem;
+	border-bottom: 0.02rem solid #efdada;
+	@include display-flex(row, space-between, center);
 
-    &__change{
-        color: #ff4000;
-        @include display-flex(row, space-between, center);
-        gap: 0.5rem;
+	&__detail {
+		@include display-flex(row, center, flex-start);
+		gap: 0.5rem;
         
-    }
+        &__crypto{
+
+            &__symbol{
+                font-weight: 200;
+                opacity: 0.8;
+            }
+        }
+
+        &__image {
+            display:block;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            margin-right: 0.5rem;
+            overflow: hidden;
+            
+            & img {
+                object-fit: cover;
+                width: 100%;
+                height: 100%;
+            }
+        }
+		
+
+		
+	}
+
+	&__value {
+		width: 8rem;
+		@include display-flex(column, flex-start, flex-start);
+		gap: 0.2rem;
+	}
 }

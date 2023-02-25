@@ -1,74 +1,87 @@
-import React from 'react'
-import './Chart.scss'
+import React,{useContext} from "react";
+import "./Chart.scss";
 import { AiOutlineCaretDown } from "react-icons/ai";
-import { BsFillCalendarWeekFill } from "react-icons/bs";
-import CryptoItem from './cryptoItem/CryptoItem';
-import ChartTypeItem from './chartTypeItem/ChartTypeItem';
-
-
+import CryptoItem from "./cryptoItem/CryptoItem";
+import ChartTypeItem from "./chartTypeItem/ChartTypeItem";
+import CoinContext from "../../../context/CoinContext";
+import TimePeriodItem from "./timePeriodItem/TimePeriodItem";
 
 const Chart = () => {
+
+	const context = useContext(CoinContext);
+	const { coinList, cryptoDropName ,graphList ,chartDropName,timePeriodList,theme} = context;
 	
 	const showCrypto = () => {
 		const droplist = document.getElementsByClassName(
 			"chart__menu__drop__crypto__list"
 		)[0];
-
 		droplist.style.display === "none"
 			? (droplist.style.display = "flex")
 			: (droplist.style.display = "none");
 	};
-	
+
 	const showChartType = () => {
 		const droplist = document.getElementsByClassName(
 			"chart__menu__drop__chart-type__list"
 		)[0];
-
 		droplist.style.display === "none"
 			? (droplist.style.display = "flex")
 			: (droplist.style.display = "none");
 	};
-  return (
-		<div className="chart">
+	const hideChartType = () => {
+		const droplist = document.getElementsByClassName(
+			"chart__menu__drop__chart-type__list"
+		)[0];
+		droplist.style.display = "none";
+	};
+	const hideCrypto = () => {
+		const droplist = document.getElementsByClassName(
+			"chart__menu__drop__crypto__list"
+		)[0];
+		droplist.style.display = "none";
+	};
+	return (
+		<div
+			className={`chart bg-${theme === "light" ? "light" : "dark"} text-${
+				theme === "light" ? "dark" : "light"
+			}`}>
 			<div className="chart__menu">
 				<div className="chart__menu__time-period">
-					<div className="chart__menu__time-period__item">1D</div>
-					<div className="chart__menu__time-period__item">1W</div>
-					<div className="chart__menu__time-period__item">1M</div>
-					<div className="chart__menu__time-period__item">6M</div>
-					<div className="chart__menu__time-period__item">1Y</div>
-					<div className="chart__menu__time-period__item">
-						<BsFillCalendarWeekFill />
-					</div>
+					{timePeriodList.map((item) => {
+						return <TimePeriodItem key={item.time} time={item.time} />;
+					})}
 				</div>
 				<div className="chart__menu__drop">
-					<div className="chart__menu__drop__crypto " onClick={showCrypto}>
-						Cryptocurrency
+					<div
+						className={`chart__menu__drop__crypto bg-dropdown-${
+							theme === "light" ? "light" : "dark"
+						} text-${theme === "light" ? "dark" : "light"}`}
+						onClick={showCrypto}>
+						{cryptoDropName}
 						<AiOutlineCaretDown />
 						<div
 							className="chart__menu__drop__crypto__list"
-							style={{ display: "none" }}>
-							<CryptoItem />
-							<CryptoItem />
-							<CryptoItem />
-							<CryptoItem />
-							<CryptoItem />
+							style={{ display: "none" }}
+							onMouseLeave={hideCrypto}>
+							{coinList.map((item) => {
+								return <CryptoItem key={item.name} name={item.name} />;
+							})}
 						</div>
 					</div>
-					<div className="chart__menu__drop__chart-type" onClick={showChartType}>
-						Chart type
+					<div
+						className={`chart__menu__drop__chart-type bg-dropdown-${
+							theme === "light" ? "light" : "dark"
+						} text-${theme === "light" ? "dark" : "light"}`}
+						onClick={showChartType}>
+						{chartDropName}
 						<AiOutlineCaretDown />
 						<div
 							className="chart__menu__drop__chart-type__list"
-							style={{ display: "none" }}>
-							<ChartTypeItem/>
-							<ChartTypeItem/>
-							<ChartTypeItem/>
-							<ChartTypeItem/>
-							<ChartTypeItem/>
-							<ChartTypeItem/>
-							<ChartTypeItem/>
-							<ChartTypeItem/>
+							style={{ display: "none" }}
+							onMouseLeave={hideChartType}>
+							{graphList.map((item) => {
+								return <ChartTypeItem key={item.graph} graph={item.graph} />;
+							})}
 						</div>
 					</div>
 				</div>
@@ -76,6 +89,6 @@ const Chart = () => {
 			<div className="chart__graph"></div>
 		</div>
 	);
-}
+};
 
-export default Chart
+export default Chart;

@@ -28,8 +28,7 @@
 				@include display-flex(row, center, center);
 				padding: 0.5rem;
 				border-radius: 0.3rem;
-				background-color: #f1f2f7;
-				// box-shadow: 0.05rem 0.05rem 0.2rem 0 grey;
+				border: 0.01rem solid rgba(0,0,0,0.2);
 				cursor: pointer;
 			}
 		}
@@ -45,10 +44,15 @@
 				width: 12rem;
 				height: 2.8rem;
 				border-radius: 0.4rem;
-				box-shadow: 0.1rem 0.1rem 0.25rem 0 rgb(210, 201, 201);
-				@include display-flex(row, space-evenly, center);
-				gap: 1rem;
+				padding: 1rem;
+				box-shadow: 0.1rem 0.1rem 0.1rem 0 rgba(0,0,0,0.5);
+				@include display-flex(row, space-between, center);
+				
 				cursor: pointer;
+				&:hover{
+					box-shadow: 0.15rem 0.15rem 0.25rem 0 rgba(0,0,0,0.5);
+
+				}
 			}
 
 			&__crypto {

@@ -21,4 +21,15 @@
     &__input:focus{
         outline: none;
     }
+
+    &__modeBtn{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 4rem ;
+        height: 100%;
+        font-size: 2rem;
+        margin-left: auto;
+        cursor: pointer;
+    }
 }

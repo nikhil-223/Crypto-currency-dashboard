@@ -1,9 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import CoinContext from '../../../context/CoinContext';
 import "./Portfolio.scss";
 
 const Portfolio = () => {
+	const {theme}= useContext(CoinContext);
   return (
-		<div className="portfolio">
+		<div
+			className={`portfolio bg-${theme === "light" ? "light" : "dark"} text-${
+				theme === "light" ? "dark" : "light"
+			}`}>
 			<div className="portfolio__head">
 				<div className="portfolio__head__title">Portfolio</div>
 				<div className="portfolio__head__value">

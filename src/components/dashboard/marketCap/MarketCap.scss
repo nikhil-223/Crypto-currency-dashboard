@@ -8,10 +8,10 @@
 .market-cap {
 	width: auto;
 	grid-area: 1/4/4/5;
+	overflow: hidden;
 
 	&__title {
 		position: sticky;
-		background-color: white;
 		top: 0;
 		width: 100%;
 		padding: 1.5rem 1.5rem 5rem 1.5rem;
