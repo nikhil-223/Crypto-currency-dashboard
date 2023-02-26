@@ -1,12 +1,8 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import CoinContext from "./CoinContext";
 import { BsFillCalendarWeekFill } from "react-icons/bs";
 
 const CoinState = (props) => {
-
-	
-
-
 	const [coinList, setCoinList] = useState([
 		{
 			id: "bitcoin",
@@ -3014,6 +3010,16 @@ const CoinState = (props) => {
 		},
 	]);
 	const [coinListD, setCoinListD] = useState(coinList);
+
+	const [chartTypeList, setChartTypeList] = useState([
+		{ chartType: "price-time" },
+		{ chartType: "price-time1" },
+		{ chartType: "price-time2" },
+		{ chartType: "price-time3" },
+		{ chartType: "price-time4" },
+	]);
+	const [chartTypeListD, setChartTypeListD] = useState(chartTypeList);
+
 	const [currencyList, setCurrencyList] = useState([
 		"btc",
 		"eth",
@@ -3141,13 +3147,8 @@ const CoinState = (props) => {
 		"bits",
 		"sats",
 	]);
-	const [graphList, setGraphList] = useState([
-		{ graph: "chat" },
-		{ graph: "pat" },
-		{ graph: "lat" },
-		{ graph: "rat" },
-	]);
-	const [timePeriod, setTimePeriod] = useState("1d")
+	
+	const [timePeriod, setTimePeriod] = useState("1d");
 	const [timePeriodList, setTimePeriodList] = useState([
 		{ time: "1D" },
 		{ time: "1W" },
@@ -3157,11 +3158,11 @@ const CoinState = (props) => {
 		{ time: <BsFillCalendarWeekFill /> },
 	]);
 
-	const [cryptoDropName, setCryptoDropName] = useState('Crypto');
-	const [chartDropName, setChartDropName] = useState('Chart Type');
-	const [currencyDropName, setCurrencyDropName] = useState('INR ₹');
+	const [cryptoDropName, setCryptoDropName] = useState("Crypto");
+	const [chartDropName, setChartDropName] = useState("Chart Type");
+	const [currencyDropName, setCurrencyDropName] = useState("INR ₹");
 
-	const [theme, setTheme] = useState("dark")
+	const [theme, setTheme] = useState("dark");
 	const [chartData, setchartData] = useState({
 		prices: [
 			[1677305074005, 23055.88973874206],
@@ -4037,77 +4038,67 @@ const CoinState = (props) => {
 			[1677391496000, 22727698843.67564],
 		],
 	});
-	
-    const getChartData = async () => { 
-			// API Call for chart data 
 
-			// const response = await fetch(
-			// 	`https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currencyDropName.split(" ")[0].toLowerCase()}&order=market_cap_desc&per_page=100&page=1&sparkline=false`,
-			// 	{
-			// 		method: "GET",
-			// 		headers: {
-			// 			"Content-Type": "application/json",
-			// 		},
-			// 	}
-			// );
-			// const json = await response.json();
-			// setChartData(json.prices)
+	const getChartData = async () => {
+		// API Call for chart data
+		// const response = await fetch(
+		// 	`https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currencyDropName.split(" ")[0].toLowerCase()}&order=market_cap_desc&per_page=100&page=1&sparkline=false`,
+		// 	{
+		// 		method: "GET",
+		// 		headers: {
+		// 			"Content-Type": "application/json",
+		// 		},
+		// 	}
+		// );
+		// const json = await response.json();
+		// setChartData(json.prices)
+		// console.log(json);
+	};
 
-			// console.log(json); 
-			  
-		};
-	
-    const getCoins = async () => { 
-			// API Call for coins
+	const getCoins = async () => {
+		// API Call for coins
+		// const response = await fetch(
+		// 	`https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currencyDropName.split(" ")[0].toLowerCase()}&order=market_cap_desc&per_page=100&page=1&sparkline=false`,
+		// 	{
+		// 		method: "GET",
+		// 		headers: {
+		// 			"Content-Type": "application/json",
+		// 		},
+		// 	}
+		// );
+		// const json = await response.json();
+		// setCoinList(json)
+		// console.log(json);
+	};
 
-			// const response = await fetch(
-			// 	`https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currencyDropName.split(" ")[0].toLowerCase()}&order=market_cap_desc&per_page=100&page=1&sparkline=false`,
-			// 	{
-			// 		method: "GET",
-			// 		headers: {
-			// 			"Content-Type": "application/json",
-			// 		},
-			// 	}
-			// );
-			// const json = await response.json();
-			// setCoinList(json)
+	const getCurrencies = async () => {
+		// API Call
+		// const response = await fetch(
+		// 	`https://api.coingecko.com/api/v3/simple/supported_vs_currencies`,
+		// 	{
+		// 		method: "GET",
+		// 		headers: {
+		// 			"Content-Type": "application/json",
+		// 		},
+		// 	}
+		// );
+		// const json = await response.json();
+		// setCurrencyList(json)
+		// console.log(json);
+	};
 
-			// console.log(json); 
-			
-		};
-
-    const getCurrencies = async () => {
-			// API Call
-
-			// const response = await fetch(
-			// 	`https://api.coingecko.com/api/v3/simple/supported_vs_currencies`,
-			// 	{
-			// 		method: "GET",
-			// 		headers: {
-			// 			"Content-Type": "application/json", 
-			// 		},
-			// 	}
-			// );
-			// const json = await response.json();
-			// setCurrencyList(json)
-
-
-			// console.log(json);
-		};
-		
-
-  return (
+	return (
 		<CoinContext.Provider
 			value={{
 				coinList,
 				getCoins,
+				getChartData,
 				getCurrencies,
 				cryptoDropName,
 				setCryptoDropName,
 				currencyList,
 				setCurrencyList,
 				currencySymbols,
-				graphList,
 				chartDropName,
 				setChartDropName,
 				currencyDropName,
@@ -4124,10 +4115,14 @@ const CoinState = (props) => {
 				setCoinListD,
 				chartData,
 				setchartData,
+				chartTypeList,
+				setChartTypeList,
+				chartTypeListD,
+				setChartTypeListD,
 			}}>
 			{props.children}
 		</CoinContext.Provider>
 	);
-}
+};
 
 export default CoinState;

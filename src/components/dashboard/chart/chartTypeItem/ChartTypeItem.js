@@ -4,7 +4,7 @@ import "./ChartTypeItem.scss";
 
 const ChartTypeItem = (props) => {
   const { setChartDropName,theme } = useContext(CoinContext);
-  const { graph } = props;
+  const { chartType } = props;
   const handleClick =(e)=>{
 
     setChartDropName(e.target.innerHTML);
@@ -15,7 +15,7 @@ const ChartTypeItem = (props) => {
 				theme === "light" ? "light" : "dark"
 			} text-${theme === "light" ? "dark" : "light"}`}
 			onClick={handleClick}>
-			{graph}
+			{chartType}
 		</div>
 	);
 };

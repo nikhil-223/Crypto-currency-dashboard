@@ -15,11 +15,12 @@ const Dashboard = () => {
   const {
 		getCoins,
 		getCurrencies,
-		coinList,
+    getChartData,
 	} = context;
   useEffect(() => {
     getCoins();
     getCurrencies();
+    getChartData();
 		// eslint-disable-next-line
 	}, [])
   
