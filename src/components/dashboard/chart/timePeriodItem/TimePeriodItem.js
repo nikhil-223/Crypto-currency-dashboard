@@ -11,7 +11,7 @@ const TimePeriodItem = (props) => {
 
 	return (
 		<div
-			className={`chart__menu__time-period__item text-${
+			className={`chart__time-period__item text-${
 				theme === "light" ? "dark" : "light"
 			} bg-timePeriod-${theme === "light" ? "light" : "dark"}`}
 			onClick={handleclick}>

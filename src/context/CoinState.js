@@ -4039,7 +4039,7 @@ const CoinState = (props) => {
 	});
 	
     const getChartData = async () => { 
-			// API Call 
+			// API Call for chart data 
 
 			// const response = await fetch(
 			// 	`https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currencyDropName.split(" ")[0].toLowerCase()}&order=market_cap_desc&per_page=100&page=1&sparkline=false`,
@@ -4058,7 +4058,7 @@ const CoinState = (props) => {
 		};
 	
     const getCoins = async () => { 
-			// API Call 
+			// API Call for coins
 
 			// const response = await fetch(
 			// 	`https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currencyDropName.split(" ")[0].toLowerCase()}&order=market_cap_desc&per_page=100&page=1&sparkline=false`,
