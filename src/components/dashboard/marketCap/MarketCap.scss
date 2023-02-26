@@ -14,14 +14,13 @@
 		position: sticky;
 		top: 0;
 		width: 100%;
-		padding: 1.5rem 1.5rem 5rem 1.5rem;
+		padding: 1.5rem 1.5rem 3rem 1.5rem;
 		font-size: 1.2rem;
 		font-weight: 600;
-		@include display-flex(row, flex-start, center);
 	}
 
 	&__items {
-		height: 71%;
+		height: 80%;
 		overflow: scroll;
 		scroll-snap-type: y mandatory;
 		&::-webkit-scrollbar {
@@ -39,6 +38,12 @@
 
 	.market-cap {
 		grid-area: 3/1/4/3;
+
+		&__title{
+			text-align: center;
+			width: 100%;
+			padding: 1rem;
+		}
 	}
 
 }

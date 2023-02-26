@@ -8,12 +8,12 @@
 .chart {
 	grid-area: 2/1/3/4;
 	padding: 0.3rem 1rem 1rem 1rem;
-	@include display-flex(column, center, center);
+	@include display-flex(column, flex-start, center);
 	gap: 0.2rem;
 
 	&__menu {
 		height: 20%;
-		// width: 100;
+		width: 100%;
 		@include display-flex(row, flex-end, center);
 		gap: 2rem;
 		z-index: 55;
@@ -102,11 +102,11 @@
 					}
 
 					top: 11rem;
-					left: 42rem;
-					width: 9rem;
-					max-height: 10rem;
+					left: 35.5rem;
+					max-width: 9rem;
+					max-height: 8rem;
 					border-radius: 0.3rem;
-					box-shadow: 0.1rem 0.1rem 0.5rem grey;
+					box-shadow: 0.1rem 0.1rem 0.5rem rgba(0, 0, 0,0.5);
 				}
 			}
 
@@ -146,21 +146,22 @@
 					}
 
 					top: 11rem;
-					left: 55rem;
+					left: 48.5rem;
 					width: 9rem;
-					height: 10rem;
+					max-height: 8rem;
 					border-radius: 0.3rem;
-					box-shadow: 0.1rem 0.1rem 0.5rem grey;
+					box-shadow: 0.1rem 0.1rem 0.5rem rgba(0, 0, 0,0.5);
 				}
 			}
 		}
 	}
 
 	&__graph {
-
-		width: 80%;
-		height: 70%;
-		margin: 1rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		height: 80%;
 	}
 }
 
@@ -175,17 +176,21 @@
 			
 			&__time-period{
 				position: absolute;
-				top: 6rem;
-				left: 1.5rem;
-				flex-direction: column;
+				width: 100%;
+				top: 18rem;
+				left: 0rem;
+				flex-direction: row;
+				justify-content: center;
 				
 				&__item{
+					height: 2rem;
 					width: 2.5rem;
 				}
 			}
 			
 			&__drop{
 				width: 100%;
+				gap: 0.5rem;
 				justify-content: flex-end;
 
 				& >div{
@@ -195,16 +200,30 @@
 				
 				&__crypto{
 					width: 6rem;
+					
+					&__list{
+						width: 6rem;
+						left: 7.3rem;
+						top: 8.5rem;
+					}
 				}
-
+				
 				&__chart-type{
 					width: 7rem;
+					
+					&__list{
+						width: 6rem;
+						left: 14.5rem;
+						top: 8.5rem;
+					}
 				}
+
 			}
 		}
 
-		&__graph{
-			margin-left: 3.5rem;
+		&__graph{	
+			width: 100%;
+			height: 62%;
 		}
 	}
 
