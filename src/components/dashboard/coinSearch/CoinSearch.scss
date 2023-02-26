@@ -17,9 +17,10 @@
         border: none;
         padding: 1rem;
         font-size: 1.1rem;
-    }
-    &__input:focus{
-        outline: none;
+
+        &:focus{
+            outline: none;
+        }
     }
 
     &__modeBtn{
@@ -31,5 +32,22 @@
         font-size: 2rem;
         margin-left: auto;
         cursor: pointer;
+    }
+}
+
+@media only screen and  (max-width:500px){
+
+   .coin-search {
+	grid-area: 1/2/2/3;
+
+    &__search-icon{
+        margin: 0rem 0 0 0.6rem;
+    }
+    &__input{
+        padding: 0.5rem;
+    }
+    &__modeBtn{
+        font-size: 1.5rem;
+    }
     }
 }

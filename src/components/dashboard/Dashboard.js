@@ -21,7 +21,7 @@ const Dashboard = () => {
     getCoins();
     getCurrencies();
 		// eslint-disable-next-line
-	}, [coinList])
+	}, [])
   
   return (
     <div className="dashboard">

@@ -83,3 +83,10 @@ $--portfolio-pie-degree-2: 90deg;
 		}
 	}
 }
+@media only screen and (max-width:500px){
+
+	.portfolio {
+		grid-area: 5/1/6/3;
+	}
+
+}
