@@ -80,8 +80,9 @@ const CoinState = (props) => {
 		"sats",
 	]);
 
-	const [timePeriod, setTimePeriod] = useState("1D");
+	const [timePeriod, setTimePeriod] = useState("1H");
 	const [timePeriodList, setTimePeriodList] = useState([
+		{ time: "1H" },
 		{ time: "1D" },
 		{ time: "1W" },
 		{ time: "1M" },
@@ -102,6 +103,9 @@ const CoinState = (props) => {
 	const getChartData = async () => {
 		let subtime;
 		switch (chartRange) {
+			case "1H":
+				subtime = 60 * 60 * 1000;
+				break;
 			case "1D":
 				subtime = 24 * 60 * 60 * 1000;
 				break;
@@ -118,7 +122,7 @@ const CoinState = (props) => {
 				subtime = 365*  24 * 60 * 60 * 1000;
 				break;
 			default:
-				subtime = 24 * 60 *  60 * 1000;
+				subtime =  60 *  60 * 1000;
 				break;
 		}
 		const rangeto = Date.now();

@@ -8,7 +8,7 @@ import {
 	Title,
 	Tooltip,
 	Filler,
-	Legend,
+	Legend,LineController,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
 import CoinContext from "../../../../context/CoinContext";
@@ -21,7 +21,8 @@ ChartJS.register(
 	Filler,
 	Title,
 	Tooltip,
-	Legend
+	Legend,
+	LineController
 );
 
 const LineChart = () => {
@@ -51,6 +52,9 @@ const LineChart = () => {
 		let day = weekday[timestamp.getMonth()];
 		let month = yearMonth[timestamp.getMonth()];
 		switch (chartRange) {
+			case "1H":
+				labels.push(`${timestamp.getHours()}:${timestamp.getMinutes()}`);
+				break;
 			case "1D":
 				labels.push(`${timestamp.getHours()}:${timestamp.getMinutes()}`);
 				break;
@@ -81,6 +85,9 @@ const LineChart = () => {
 		return;
 	});
 
+	const up = (ctx, value) => ctx.p0.parsed.y < ctx.p0.parsed.y? value: undefined;
+	const down = (ctx, value) => ctx.p0.parsed.y > ctx.p0.parsed.y? value: undefined;
+	
 	const data = {
 		labels,
 		datasets: [
@@ -91,6 +98,15 @@ const LineChart = () => {
 				tension: 0.1,
 				pointRadius: 0,
 				fill: true,
+				interaction: {
+					intersect: false,
+				},
+				radius: 0,
+				spanGaps: true,
+				segment: {
+					borderColor: (ctx) =>
+						up(ctx, "rgb(255, 99, 132)") || down(ctx, "rgb(0, 0, 0)"),
+				},
 			},
 		],
 	};
