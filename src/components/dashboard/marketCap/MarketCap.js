@@ -1,10 +1,15 @@
-import React,{useContext} from 'react'
+import React,{useContext,useEffect} from 'react'
 import CoinContext from '../../../context/CoinContext';
 import './MarketCap.scss'
 import MarketItem from './marketItem/MarketItem';
 
 const MarketCap = () => {
-	const { coinList, theme, currencyDropName } = useContext(CoinContext);
+	const { getCoins,coinList, theme, currencyDropName } = useContext(CoinContext);
+	
+	useEffect(() => {
+		getCoins();
+		// eslint-disable-next-line
+	}, [currencyDropName]);
   return (
 		<div
 			className={`market-cap bg-${theme === "light" ? "light" : "dark"} text-${
@@ -15,7 +20,7 @@ const MarketCap = () => {
 				{coinList.map((item,i) => {
 					return (
 						<MarketItem
-							key={item.name}
+							key={item.id}
 							name={item.name}
 							image={item.image}
 							symbol={item.symbol}

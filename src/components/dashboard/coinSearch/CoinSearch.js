@@ -9,6 +9,7 @@ const CoinSearch = () => {
 	const {setTheme,theme} = useContext(CoinContext)
 	const setmode=()=>{
 		setTheme(theme === "light"? "dark":"light")
+		
 	}
 	return (
 		<>

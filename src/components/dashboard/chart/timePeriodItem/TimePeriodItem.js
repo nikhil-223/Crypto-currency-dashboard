@@ -3,12 +3,16 @@ import CoinContext from "../../../../context/CoinContext";
 import "./TimePeriodItem.scss";
 
 const TimePeriodItem = (props) => {
-    const {setTimePeriod,theme} = useContext(CoinContext)
+    const {setChartRange,theme} = useContext(CoinContext)
 	const { time } = props; 
     const handleclick=(e)=>{
-        setTimePeriod(e.target.innerHTML)
+		e.preventDefault();
+		setChartRange(e.target.innerHTML);
     }
-
+    // useEffect(() => {
+	// 	console.log(chartRange);
+	// }, [])
+	
 	return (
 		<div
 			className={`chart__time-period__item text-${

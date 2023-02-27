@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext,useEffect } from "react";
 import "./Chart.scss";
 import { AiOutlineCaretDown } from "react-icons/ai";
 import CryptoItem from "./cryptoItem/CryptoItem";
@@ -14,18 +14,25 @@ const Chart = () => {
 		setCoinListD,
 		coinList,
 		setCryptoDropName,
-		cryptoDropName,
 		chartDropName,
 		timePeriodList,
 		theme,
 		setChartDropName,
 		chartTypeList,
-		setChartTypeList,
 		chartTypeListD,
 		setChartTypeListD,
+		getChartData,
+		cryptoDropName,
+		chartRange,
+		currencyDropName
 	} = context;
 
 	
+
+useEffect(() => {
+	getChartData();
+	// eslint-disable-next-line
+},[cryptoDropName,currencyDropName,chartRange]);
 
 	
 	
@@ -99,20 +106,22 @@ const showCrypto = () => {
 		setChartDropName(e.target.value);
 		handleFocusChartType();
 		let rahul = chartTypeListD.filter((element) => {
-			console.log(element.chartType);
 			return (
 				e.target.value.toLowerCase().charAt(0) === element.chartType.charAt(0) &&
 				(e.target.value.toLowerCase().charAt(1) === element.chartType.charAt(1) ||
 					e.target.value.charAt(1) === "")
 			);
 		});
-			// console.log(rahul)
 		
 			!rahul[0] && e.target.value === ""
 				? setChartTypeListD(chartTypeList)
 				: setChartTypeListD(rahul);
 		
 	};
+	
+	
+	
+	
 // Jsx 
 
 	return (
@@ -180,7 +189,7 @@ const showCrypto = () => {
 				</div>
 			</div>
 			<div className="chart__graph">
-				<LineChart />
+				<LineChart/>
 			</div>
 		</div>
 	);

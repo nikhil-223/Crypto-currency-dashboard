@@ -1,4 +1,4 @@
-import React , {useContext,useState} from 'react'
+import React , {useContext,useEffect} from 'react'
 import "./CurrencyDropdown.scss";
 import { AiOutlineCaretDown } from "react-icons/ai";
 import CoinDropItem from './coinDrop/CoinDropItem';
@@ -8,15 +8,21 @@ const CurrencyDropdown = () => {
 	const context = useContext(CoinContext)
 	const {
 		currencyList,
-		setCurrencyList,
 		setCurrencyDropName,
 		currencyDropName,
 		theme,
 		currencySymbols,
 		currencyListD,
 		setCurrencyListD,
+		getCurrencies 
 	} = context;
 
+	useEffect(() => {
+		getCurrencies();
+		// eslint-disable-next-line
+	},[])
+
+	
 	
 	const showDrop = () => {
 		const droplist = document.getElementsByClassName(
@@ -50,8 +56,7 @@ const CurrencyDropdown = () => {
 				(e.target.value.toLowerCase().charAt(1) === element.charAt(1)) || (e.target.value.charAt(1)==="")
 			);
 		})
-		console.log(!rahul[0]);
-		{!rahul[0] && e.target.value===""?  setCurrencyListD(currencyList):setCurrencyListD(rahul) }
+		!rahul[0] && e.target.value===""?  setCurrencyListD(currencyList):setCurrencyListD(rahul) 
 		
 	}
   return (
@@ -87,7 +92,7 @@ const CurrencyDropdown = () => {
 						return (
 							<CoinDropItem
 								key={i}
-								currency={currencyListD[i].toUpperCase()}
+								currencyName={currencyListD[i].toUpperCase()}
 								currencySymbol={currencySymbols[i]}
 							/>
 						);

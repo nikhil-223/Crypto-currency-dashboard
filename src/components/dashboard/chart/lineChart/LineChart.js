@@ -1,60 +1,87 @@
-import React,{useEffect,useContext} from "react";
-import { Chart } from "chart.js/auto";
-import './LineChart.scss'
-
+import React, { useContext } from "react";
+import {
+	Chart as ChartJS,
+	CategoryScale,
+	LinearScale,
+	PointElement,
+	LineElement,
+	Title,
+	Tooltip,
+	Legend,
+} from "chart.js";
+import { Line } from "react-chartjs-2";
 import CoinContext from "../../../../context/CoinContext";
 
+ChartJS.register(
+	CategoryScale,
+	LinearScale,
+	PointElement,
+	LineElement,
+	Title,
+	Tooltip,
+	Legend
+);
 
 const LineChart = () => {
-    const {chartData, setchartData} = useContext(CoinContext)
-	// setup
+	const { chartData ,chartRange} = useContext(CoinContext);
+
+
+	// lables 
+	
 	let labels = [];
 	chartData.prices.map((element) => {
 		const timestamp = new Date(element[0]);
-		labels.push(`${timestamp.getHours()}:${timestamp.getMinutes()}`);
+		switch (chartRange) {
+			case "1D":
+				labels.push(`${timestamp.getHours()}:${timestamp.getMinutes()}`);
+				break;
+			case "1W":
+				labels.push(`${timestamp.getDay()}}`);
+				break;
+			case "1M":
+				labels.push(`${timestamp.getDate()}`);
+				break;
+			case "6M":
+				labels.push(`${timestamp.getMonth()}`);
+				break;
+			case "1Y":
+				labels.push(`${timestamp.getMonth()}`);
+				break;
+			default:
+				labels.push(`${timestamp.getHours()}:${timestamp.getMinutes()}`);
+				break;
+		}
+		// eslint-disable-next-line
+		return;
 	});
-	let dataArray=[];
 
+	let dataArray = [];
 	chartData.prices.map((element) => {
-		const price = element[1];
-		dataArray.push(price);
+		dataArray.push(element[1]);
+		// eslint-disable-next-line
+		return;
 	});
 
-	
 	const data = {
-		labels: labels,
+		labels,
 		datasets: [
 			{
-				label: "",
+				label: "Price",
 				data: dataArray,
-				fill: true,
-				borderColor: "rgb(0, 192, 192)",
-				borderWidth: 1,
-				pointBackgroundColor: "rgba(255, 0, 0, 0.6)",
-				pointRadius:0.1,
-			}
+				borderColor: "rgb(255, 99, 132)",
+				pointRadius: 0,
+			},
 		],
 	};
 
-	// config
-	const config = {
-		type: "line",
-		data: data,
+	const options = {
+		responsive: true,
+		plugins: {
+			legend: true,
+		},
 	};
 
-	// render init block
-    useEffect(() => {  
-      const myChart = new Chart(document.getElementById("myChart"), config);
-	  
-
-    }, []) 
-    
-	
-	return (
-		<>
-					<canvas style={{aspectRatio: "auto 1800 / 300"}} id="myChart"></canvas>
-		</>
-	);
+	return <Line data={data} height={325} width={900} options={options} />;
 };
 
 export default LineChart;
