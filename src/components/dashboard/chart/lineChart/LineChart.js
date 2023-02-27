@@ -32,15 +32,7 @@ const LineChart = () => {
 	let labels = [];
 	chartData.prices.map((element) => {
 		const timestamp = new Date(element[0]);
-		const weekday = [
-			"Sun",
-			"Mon",
-			"Tue",
-			"Wed",
-			"Thur",
-			"Fri",
-			"Sat",
-		];
+		const weekday = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
 		const yearMonth = [
 			"Jan",
 			"Feb",
@@ -110,7 +102,19 @@ const LineChart = () => {
 		},
 	};
 
-	return <Line data={data} height={300} width={900} options={options} />;
+	const x = window.matchMedia("(max-width: 500px)");
+	let height;
+		if (x.matches) {
+			// If media query matches
+			height = 500;
+		} else {
+			height=300;
+		}
+ 
+	 // Call listener function at run time
+	 // Attach listener function on state changes
+
+	return <Line data={data} height={height} width={900} options={options} />;
 };
 
 export default LineChart;
