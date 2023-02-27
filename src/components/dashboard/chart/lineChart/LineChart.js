@@ -25,30 +25,54 @@ ChartJS.register(
 );
 
 const LineChart = () => {
-	const { chartData ,chartRange} = useContext(CoinContext);
+	const { chartData, chartRange } = useContext(CoinContext);
 
+	// lables
 
-	// lables 
-	
 	let labels = [];
 	chartData.prices.map((element) => {
 		const timestamp = new Date(element[0]);
+		const weekday = [
+			"Sun",
+			"Mon",
+			"Tue",
+			"Wed",
+			"Thur",
+			"Fri",
+			"Sat",
+		];
+		const yearMonth = [
+			"Jan",
+			"Feb",
+			"Mar",
+			"Apr",
+			"May",
+			"Jun",
+			"Jul",
+			"Aug",
+			"Sep",
+			"Oct",
+			"Nov",
+			"Dec",
+		];
+
+		let day = weekday[timestamp.getMonth()];
+		let month = yearMonth[timestamp.getMonth()];
 		switch (chartRange) {
 			case "1D":
 				labels.push(`${timestamp.getHours()}:${timestamp.getMinutes()}`);
 				break;
 			case "1W":
-				labels.push(`${timestamp.getDay()}}`);
+				labels.push(`${day} ${timestamp.getHours()}:${timestamp.getMinutes()}`);
 				break;
 			case "1M":
-				console.log(timestamp.getDate());
-				labels.push(`${timestamp.getDate()}`);
+				labels.push(`${month} ${timestamp.getDate()}`);
 				break;
 			case "6M":
-				labels.push(`${timestamp.getMonth()}`);
+				labels.push(`${month} ${timestamp.getMonth()}`);
 				break;
 			case "1Y":
-				labels.push(`${timestamp.getMonth()}`);
+				labels.push(`${month} ${timestamp.getMonth()}`);
 				break;
 			default:
 				labels.push(`${timestamp.getHours()}:${timestamp.getMinutes()}`);
@@ -72,9 +96,9 @@ const LineChart = () => {
 				label: "Price",
 				data: dataArray,
 				borderColor: "rgb(255, 99, 132)",
-				tension:0.1,
+				tension: 0.1,
 				pointRadius: 0,
-				fill:true,
+				fill: true,
 			},
 		],
 	};
@@ -82,8 +106,7 @@ const LineChart = () => {
 	const options = {
 		responsive: true,
 		plugins: {
-			legend:true,
-			
+			legend: true,
 		},
 	};
 
