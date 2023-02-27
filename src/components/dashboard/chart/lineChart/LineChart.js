@@ -7,6 +7,7 @@ import {
 	LineElement,
 	Title,
 	Tooltip,
+	Filler,
 	Legend,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
@@ -17,6 +18,7 @@ ChartJS.register(
 	LinearScale,
 	PointElement,
 	LineElement,
+	Filler,
 	Title,
 	Tooltip,
 	Legend
@@ -39,6 +41,7 @@ const LineChart = () => {
 				labels.push(`${timestamp.getDay()}}`);
 				break;
 			case "1M":
+				console.log(timestamp.getDate());
 				labels.push(`${timestamp.getDate()}`);
 				break;
 			case "6M":
@@ -69,7 +72,9 @@ const LineChart = () => {
 				label: "Price",
 				data: dataArray,
 				borderColor: "rgb(255, 99, 132)",
+				tension:0.1,
 				pointRadius: 0,
+				fill:true,
 			},
 		],
 	};
@@ -77,11 +82,12 @@ const LineChart = () => {
 	const options = {
 		responsive: true,
 		plugins: {
-			legend: true,
+			legend:true,
+			
 		},
 	};
 
-	return <Line data={data} height={325} width={900} options={options} />;
+	return <Line data={data} height={300} width={900} options={options} />;
 };
 
 export default LineChart;
