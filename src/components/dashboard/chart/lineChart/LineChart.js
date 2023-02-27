@@ -85,6 +85,8 @@ const LineChart = () => {
 		return;
 	});
 
+	const skipped = (ctx, value) =>
+		ctx.p0.skip || ctx.p1.skip ? value : undefined;
 	const up = (ctx, value) => ctx.p0.parsed.y < ctx.p0.parsed.y? value: undefined;
 	const down = (ctx, value) => ctx.p0.parsed.y > ctx.p0.parsed.y? value: undefined;
 	
@@ -106,6 +108,9 @@ const LineChart = () => {
 				segment: {
 					borderColor: (ctx) =>
 						up(ctx, "rgb(255, 99, 132)") || down(ctx, "rgb(0, 0, 0)"),
+					borderColor: (ctx) =>
+						skipped(ctx, "rgb(0,0,0,0.2)") || down(ctx, "rgb(192,75,75)"),
+					borderDash: (ctx) => skipped(ctx, [6, 6]),
 				},
 			},
 		],
@@ -114,23 +119,27 @@ const LineChart = () => {
 	const options = {
 		responsive: true,
 		plugins: {
-			legend: true,
+			legend: false,
 		},
 	};
 
 	const x = window.matchMedia("(max-width: 500px)");
 	let height;
+	let width;
+	
 		if (x.matches) {
 			// If media query matches
 			height = 500;
+			width= 900;
 		} else {
-			height=300;
+			height=250;
+			width=900;
 		}
  
 	 // Call listener function at run time
 	 // Attach listener function on state changes
 
-	return <Line data={data} height={height} width={900} options={options} />;
+	return <Line data={data} height={height} width={width} options={options} />;
 };
 
 export default LineChart;

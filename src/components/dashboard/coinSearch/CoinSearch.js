@@ -30,7 +30,7 @@ const CoinSearch = () => {
 				<div
 					className={`coin-search__modeBtn bg-${
 						theme === "light" ? "light" : "dark"
-					} text-${theme === "light" ? "dark" : "light"}`}
+					} text-modebtn-${theme === "light" ? "dark" : "light"}`}
 					onClick={setmode}>
 					{theme === "light" ? (
 						<MdDarkMode />

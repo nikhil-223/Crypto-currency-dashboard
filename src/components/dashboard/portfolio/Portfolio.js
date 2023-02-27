@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import CoinContext from '../../../context/CoinContext';
+import PieChart from './pieChart/PieChart';
 import "./Portfolio.scss";
 
 const Portfolio = () => {
@@ -18,22 +19,9 @@ const Portfolio = () => {
 			</div>
 			<div className="portfolio__data">
 				<div className="portfolio__data__circle">
-					<div className="portfolio__data__circle__pie"></div>
+					<PieChart/>
 				</div>
-				<div className="portfolio__data__list">
-					<div className="portfolio__data__list__item">
-						<div className="portfolio__data__list__item__pointer pointer1"></div>
-						<span>Tether</span>
-					</div>
-					<div className="portfolio__data__list__item">
-						<div className="portfolio__data__list__item__pointer pointer2"></div>
-						<span>Luna</span>
-					</div>
-					<div className="portfolio__data__list__item">
-						<div className="portfolio__data__list__item__pointer pointer3"></div>
-						<span>Ethereum</span>
-					</div>
-				</div>
+				
 			</div>
 		</div>
 	);
