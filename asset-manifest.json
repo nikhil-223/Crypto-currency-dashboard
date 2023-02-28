@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/cyptocurrency-dashboard/static/css/main.5ce7a91a.css",
-    "main.js": "/cyptocurrency-dashboard/static/js/main.52398175.js",
-    "index.html": "/cyptocurrency-dashboard/index.html",
-    "main.5ce7a91a.css.map": "/cyptocurrency-dashboard/static/css/main.5ce7a91a.css.map",
-    "main.52398175.js.map": "/cyptocurrency-dashboard/static/js/main.52398175.js.map"
+    "main.css": "/Crypto-currency-dashboard/static/css/main.570a6189.css",
+    "main.js": "/Crypto-currency-dashboard/static/js/main.52398175.js",
+    "index.html": "/Crypto-currency-dashboard/index.html",
+    "main.570a6189.css.map": "/Crypto-currency-dashboard/static/css/main.570a6189.css.map",
+    "main.52398175.js.map": "/Crypto-currency-dashboard/static/js/main.52398175.js.map"
   },
   "entrypoints": [
-    "static/css/main.5ce7a91a.css",
+    "static/css/main.570a6189.css",
     "static/js/main.52398175.js"
   ]
 }
