@@ -29,6 +29,7 @@
 }
 
 .chart {
+	width: 100%;
 	grid-area: 1/1/2/3;
 	padding: 1rem 1.5rem 1.5rem 1.5rem;
 	display: grid;
@@ -155,9 +156,10 @@
 
 @media only screen and (max-width: 500px) {
 	.chart {
+		width:100%;
 		grid-area: 1/1/2/2;
-		grid-template-columns:29% 71%;
-		grid-template-rows: 20fr 75fr 20fr;
+		grid-template-columns:29fr 71fr;
+		grid-template-rows: 12% 1fr 12%;
 		padding: 0.5rem;
 
 		
@@ -186,7 +188,7 @@
 			}
 
 			&__crypto {
-				width: 6rem;
+				width: 6.5rem;
 
 				& input[for="crypto"]{
 					font-size: 0.8rem;
@@ -211,8 +213,8 @@
 		&__graph {
 			grid-area:2/1/3/3 ;
 			justify-self: center;
-			width: 90%;
-			height: 100%;
+			width: 100%;
+			height: 95%;
 		}
 	}
 }
