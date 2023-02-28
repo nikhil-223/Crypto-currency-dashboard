@@ -7,18 +7,11 @@
 
 .market-cap {
 	width: auto;
-	grid-area: 1/4/4/5;
+	grid-area: 1/3/3/4;
+	padding-top: 0.5rem;
 	overflow: hidden;
-
-	&__title {
-		position: sticky;
-		top: 0;
-		width: 100%;
-		padding: 1.5rem 1.5rem 3rem 1.5rem;
-		font-size: 1.2rem;
-		font-weight: 400;
-	}
-
+	@include display-flex(column , flex-start, center);
+	gap: 0.5rem;
 	&__items {
 		height: 80%;
 		overflow: scroll;

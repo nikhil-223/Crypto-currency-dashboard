@@ -1,5 +1,5 @@
 import React,{useContext} from 'react'
-import CoinContext from '../../../../context/CoinContext';
+import CoinContext from '../../../../../context/CoinContext';
 import './CoinDropItem.scss'  
 
 const CoinDropItem = (props) => {

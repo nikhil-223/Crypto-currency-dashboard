@@ -3,7 +3,7 @@ import "./CoinSearch.scss";
 import { AiOutlineSearch } from "react-icons/ai";
 import { MdDarkMode } from "react-icons/md";
 import { BsFillSunFill } from "react-icons/bs";
-import CoinContext from "../../../context/CoinContext";
+import CoinContext from "../../../../context/CoinContext";
 
 const CoinSearch = () => {
 	const {setTheme,theme} = useContext(CoinContext)

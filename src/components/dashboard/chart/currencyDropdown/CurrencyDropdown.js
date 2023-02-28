@@ -2,7 +2,7 @@ import React , {useContext,useEffect} from 'react'
 import "./CurrencyDropdown.scss";
 import { AiOutlineCaretDown } from "react-icons/ai";
 import CoinDropItem from './coinDrop/CoinDropItem';
-import CoinContext from '../../../context/CoinContext'
+import CoinContext from '../../../../context/CoinContext';
 
 const CurrencyDropdown = () => {
 	const context = useContext(CoinContext)
@@ -62,10 +62,11 @@ const CurrencyDropdown = () => {
   return (
 		<>
 			<div
-				className={`currency-dropdown bg-${
-					theme === "light" ? "light" : "dark"
-				} text-${theme === "light" ? "dark" : "light"}`}>
-				<div className="currency-dropdown__box">
+				className={`currency-dropdown `}>
+				<div
+					className={`currency-dropdown__box bg-dropdown-${
+						theme === "light" ? "light" : "dark"
+					} text-${theme === "light" ? "dark" : "light"}`}>
 					<input
 						className={`bg-${theme === "light" ? "light" : "dark"} text-${
 							theme === "light" ? "dark" : "light"

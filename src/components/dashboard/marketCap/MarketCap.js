@@ -1,5 +1,6 @@
 import React,{useContext,useEffect} from 'react'
 import CoinContext from '../../../context/CoinContext';
+import CoinSearch from './coinSearch/CoinSearch';
 import './MarketCap.scss'
 import MarketItem from './marketItem/MarketItem';
 
@@ -15,7 +16,7 @@ const MarketCap = () => {
 			className={`market-cap bg-${theme === "light" ? "light" : "dark"} text-${
 				theme === "light" ? "dark" : "light"
 			}`}>
-			<div className="market-cap__title">Cryptocurrency by Market Cap</div>
+			<CoinSearch/>
 			<div className="market-cap__items">
 				{coinList.map((item,i) => {
 					return (

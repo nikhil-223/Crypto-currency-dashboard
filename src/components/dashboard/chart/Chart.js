@@ -6,6 +6,7 @@ import ChartTypeItem from "./chartTypeItem/ChartTypeItem";
 import CoinContext from "../../../context/CoinContext";
 import TimePeriodItem from "./timePeriodItem/TimePeriodItem";
 import LineChart from "./lineChart/LineChart";
+import CurrencyDropdown from './currencyDropdown/CurrencyDropdown'
 
 const Chart = () => {
 	const context = useContext(CoinContext);
@@ -129,6 +130,7 @@ const showCrypto = () => {
 			className={`chart bg-${theme === "light" ? "light" : "dark"} text-${
 				theme === "light" ? "dark" : "light"
 			}`}>
+			<div className="chart__currency-dropdown"><CurrencyDropdown/></div>
 			<div className="chart__time-period">
 				{timePeriodList.map((item) => {
 					return <TimePeriodItem key={item.time} time={item.time} />;
