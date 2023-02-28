@@ -109,24 +109,20 @@ const LineChart = () => {
 	};
 
 	const x = window.matchMedia("(max-width: 500px)");
-	let height;
-	let width;
+	
 	let yticks;
 	let xticks;
 
 	if (x.matches) {
 		// If media query matches
-		height = 500;
-		width = 900;
 		yticks = { display: false, beginAtZero: true };
 		xticks = { display: false, beginAtZero: true };
 	} else {
-		height = 300;
-		width = 900;
 		yticks={};
 		xticks={};
 	}
 	const options = {
+		maintainAspectRatio: false,
 		responsive: true,
 		plugins: {
 			legend: false,
@@ -159,7 +155,8 @@ const LineChart = () => {
 	// Call listener function at run time
 	// Attach listener function on state changes
 
-	return <Line data={data} height={height} width={width} options={options} />;
+	return <Line data={data} 
+	 options={options} />;
 };
 
 export default LineChart;

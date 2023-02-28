@@ -8,9 +8,10 @@
 	grid-area: 2/2/3/3;
 	padding: 1.5rem 2.5rem 1.5rem 3rem;
 	display: grid;
-	grid-template-columns: 1fr 1fr;
-	grid-template-rows: 10% 1.1fr 1.1fr 1fr;
+	grid-template-columns: calc(50% - (1.5rem / 2)) calc(50% - (1.5rem / 2));
+	grid-template-rows: 2.5rem 15fr 15fr 15fr;
 	gap: 0.5rem;
+	column-gap: 1.5rem;
 
 	&__title {
 		grid-area: 1/1/2/3;
@@ -24,8 +25,8 @@
 		grid-area: 2/1/3/2;
 		color: red;
 		margin-top: auto;
-		@include display-flex(row, flex-start, center);
-		gap: 1.5rem;
+		@include display-flex(row, center, center);
+		gap: 1rem;
 
 		&__drop {
 			width: 7rem;
@@ -36,20 +37,18 @@
 			box-shadow: 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.5);
 			cursor: pointer;
 
-
-			&:hover{
-				box-shadow: 0.13rem 0.13rem 0.2rem rgba(0, 0, 0,0.5);
-
+			&:hover {
+				box-shadow: 0.13rem 0.13rem 0.2rem rgba(0, 0, 0, 0.5);
 			}
 		}
 	}
-	
+
 	&__buy {
 		grid-area: 3/1/4/2;
 		color: rgb(81, 238, 165);
-		@include display-flex(row, flex-start, center);
-		gap: 1.5rem;
-		
+		@include display-flex(row, center, flex-end);
+		gap: 1rem;
+
 		&__drop {
 			width: 7rem;
 			border-radius: 0.3rem;
@@ -57,17 +56,16 @@
 			box-shadow: 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.5);
 			cursor: pointer;
 			@include display-flex(row, space-between, center);
-			
-			&:hover{
-				box-shadow: 0.13rem 0.13rem 0.2rem rgba(0, 0, 0, 0.5);
 
+			&:hover {
+				box-shadow: 0.13rem 0.13rem 0.2rem rgba(0, 0, 0, 0.5);
 			}
 		}
 	}
 
 	&__enter-sellValue {
 		grid-area: 2/2/3/3;
-		@include display-flex(column, center, flex-start);
+		@include display-flex(column, flex-end, flex-start);
 
 		& label[for="sell"] {
 			opacity: 0.5;
@@ -89,9 +87,9 @@
 	&__get-buyValue {
 		margin: auto;
 		grid-area: 3/2/4/3;
-		@include display-flex(row, flex-start, center);
+		@include display-flex(row, flex-start, flex-end);
 		width: 100%;
-		height: 2.5rem;
+		height: 100%;
 		border: none;
 		border-radius: 0.3rem;
 		padding: 0.5rem 0.5rem;
@@ -100,21 +98,20 @@
 
 	&__exchange {
 		grid-area: 4/1/5/3;
-		@include display-flex(row, center, center);
+		@include display-flex(row, center, flex-end);
 
 		&Btn {
 			padding: 0.5rem 1rem;
-			background-color: #1C5DDB;
+			margin-bottom: 0.5rem;
+			background-color: #1c5ddb;
 			color: white;
 			border-radius: 0.2rem;
 			cursor: pointer;
 		}
 	}
 }
-@media only screen and (max-width:500px){
-
+@media only screen and (max-width: 500px) {
 	.exchange-coins {
 		grid-area: 3/1/4/2;
 	}
-
 }

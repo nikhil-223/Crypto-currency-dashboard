@@ -1,4 +1,6 @@
 .coin-search{
+    width: 100%;
+    height: 3rem;
     grid-area:1/2/2/4 ;
     overflow: hidden;
     display: flex;
@@ -6,7 +8,7 @@
     justify-content: flex-start;
 
     &__search-icon{
-        margin: 0.4rem 0 0 1rem;
+        margin: 0.4rem 0 0 2rem;
         font-size: 1.3rem;
     }
 
@@ -29,8 +31,9 @@
         align-items: center;
         width: 4rem ;
         height: 100%;
-        font-size: 2rem;
+        font-size: 1.5rem;
         margin-left: auto;
+        margin-right: 1rem;
         cursor: pointer;
     }
 }
@@ -41,7 +44,7 @@
 	grid-area: 1/2/2/3;
 
     &__search-icon{
-        margin: 0rem 0 0 0.6rem;
+        margin: 0.3rem 0 0 1.5rem;
     }
     &__input{
         font-size: 0.9rem;
