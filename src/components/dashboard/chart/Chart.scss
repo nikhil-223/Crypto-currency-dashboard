@@ -30,10 +30,10 @@
 
 .chart {
 	grid-area: 1/1/2/3;
-	padding: 0.3rem 1.5rem 2rem 1.5rem;
+	padding: 1rem 1.5rem 1.5rem 1.5rem;
 	display: grid;
-	grid-template-columns:12% 43% 45%;
-	grid-template-rows: 15% 85%;
+	grid-template-columns:12% 43fr 45%;
+	grid-template-rows: 15fr 85%;
 	gap: 0.5rem;
 
 	&__currency-dropdown{

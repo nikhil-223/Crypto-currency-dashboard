@@ -132,7 +132,7 @@ const LineChart = () => {
 		yticks = { display: false, beginAtZero: true };
 		xticks = { display: false, beginAtZero: true };
 	} else {
-		height = 250;
+		height = 300;
 		width = 900;
 		yticks={};
 		xticks={};
