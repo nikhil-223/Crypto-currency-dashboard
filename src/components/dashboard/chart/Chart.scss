@@ -33,8 +33,9 @@
 	padding: 1rem 1.5rem 1.5rem 1.5rem;
 	display: grid;
 	grid-template-columns:12% 43fr 45%;
-	grid-template-rows: 15fr 85%;
+	grid-template-rows: 15fr 83%;
 	gap: 0.5rem;
+	row-gap: 1rem;
 
 	&__currency-dropdown{
 		grid-area: 1/1/2/2;
@@ -112,7 +113,6 @@
 
 		&__chart-type {
 			width: 12.5rem;
-			margin-right: 1rem;
 
 			
 			& input[for="chartType"] {
@@ -156,7 +156,7 @@
 @media only screen and (max-width: 500px) {
 	.chart {
 		grid-area: 1/1/2/2;
-		grid-template-columns:30% 70%;
+		grid-template-columns:29% 71%;
 		grid-template-rows: 20fr 75fr 20fr;
 		padding: 0.5rem;
 
@@ -178,24 +178,30 @@
 			grid-area:1/2/2/3 ;
 			width: 100%;
 			gap: 0.5rem;
-			justify-content: flex-end;
+			justify-content: center;
 
 			& > div {
 				height: 2rem;
-				font-size: 0.8rem;
+				font-size: 0.9rem;
 			}
 
 			&__crypto {
 				width: 6rem;
 
+				& input[for="crypto"]{
+					font-size: 0.8rem;
+				}
 				&__list {
 					width: 5.2rem;
 				}
 			}
 
 			&__chart-type {
-				width: 7.8rem;
+				width: 7rem; 
 
+				& input[for="chartType"]{
+					font-size: 0.8rem;
+				}
 				&__list {
 					width: 7rem;
 				}
