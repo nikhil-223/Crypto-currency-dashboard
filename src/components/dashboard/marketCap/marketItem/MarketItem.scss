@@ -51,9 +51,10 @@
 
 @media only screen and (max-width:500px){
     .market-item{
-
+        width: 100%;
+        gap: 4.5rem;
         &__value{
-            width: 5rem;
+            width: 6rem;
         }
     }
 }

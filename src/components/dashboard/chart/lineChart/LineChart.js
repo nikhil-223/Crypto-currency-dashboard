@@ -8,7 +8,8 @@ import {
 	Title,
 	Tooltip,
 	Filler,
-	Legend,LineController,
+	Legend,
+	LineController,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
 import CoinContext from "../../../../context/CoinContext";
@@ -22,7 +23,7 @@ ChartJS.register(
 	Title,
 	Tooltip,
 	Legend,
-	LineController
+	LineController,
 );
 
 const LineChart = () => {
@@ -87,9 +88,11 @@ const LineChart = () => {
 
 	const skipped = (ctx, value) =>
 		ctx.p0.skip || ctx.p1.skip ? value : undefined;
-	const up = (ctx, value) => ctx.p0.parsed.y < ctx.p0.parsed.y? value: undefined;
-	const down = (ctx, value) => ctx.p0.parsed.y > ctx.p0.parsed.y? value: undefined;
-	
+	const up = (ctx, value) =>
+		ctx.p0.parsed.y < ctx.p0.parsed.y ? value : undefined;
+	const down = (ctx, value) =>
+		ctx.p0.parsed.y > ctx.p0.parsed.y ? value : undefined;
+
 	const data = {
 		labels,
 		datasets: [
@@ -116,28 +119,56 @@ const LineChart = () => {
 		],
 	};
 
+	const x = window.matchMedia("(max-width: 500px)");
+	let height;
+	let width;
+	let yticks;
+	let xticks;
+
+	if (x.matches) {
+		// If media query matches
+		height = 500;
+		width = 900;
+		yticks = { display: false, beginAtZero: true };
+		xticks = { display: false, beginAtZero: true };
+	} else {
+		height = 250;
+		width = 900;
+		yticks={};
+		xticks={};
+	}
 	const options = {
 		responsive: true,
 		plugins: {
 			legend: false,
 		},
+		scales: {
+			// to remove the labels
+			x: {
+				ticks: xticks,
+
+				// to remove the x-axis grid
+				grid: {
+					drawBorder: false,
+					display: false,
+				},
+			},
+			// to remove the y-axis labels
+			y: {
+				ticks: yticks,
+				// to remove the y-axis grid
+				grid: {
+					drawBorder: false,
+					display: false,
+				},
+			},
+		},
 	};
 
-	const x = window.matchMedia("(max-width: 500px)");
-	let height;
-	let width;
 	
-		if (x.matches) {
-			// If media query matches
-			height = 500;
-			width= 900;
-		} else {
-			height=250;
-			width=900;
-		}
- 
-	 // Call listener function at run time
-	 // Attach listener function on state changes
+
+	// Call listener function at run time
+	// Attach listener function on state changes
 
 	return <Line data={data} height={height} width={width} options={options} />;
 };
