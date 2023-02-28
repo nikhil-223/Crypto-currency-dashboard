@@ -65,18 +65,12 @@ const showCrypto = () => {
 	const handleChangeCrypto = (e) => {
 		setCryptoDropName(e.target.value);
 		handleFocusCrypto();
-		let rahul = coinListD.filter((element) => {
-			return (
-				e.target.value.toLowerCase().charAt(0) === element.name.charAt(0) &&
-				(e.target.value.toLowerCase().charAt(1) === element.name.charAt(1) ||
-					e.target.value.charAt(1) === "")
-			);
+		let rahul = coinList.filter((element) => {
+			return element.name.toLowerCase().includes(e.target.value.toLowerCase());
 		});
-
-		
-			!rahul[0] && e.target.value === ""
-				? setCoinListD(coinList)
-				: setCoinListD(rahul);
+		!rahul[0] || e.target.value === ""
+			? setCoinListD(coinList)
+			: setCoinListD(rahul); 
 		
 	};
 
@@ -106,18 +100,12 @@ const showCrypto = () => {
 	const handleChangeChartType = (e) => {
 		setChartDropName(e.target.value);
 		handleFocusChartType();
-		let rahul = chartTypeListD.filter((element) => {
-			return (
-				e.target.value.toLowerCase().charAt(0) === element.chartType.charAt(0) &&
-				(e.target.value.toLowerCase().charAt(1) === element.chartType.charAt(1) ||
-					e.target.value.charAt(1) === "")
-			);
+		let rahul = chartTypeList.filter((element) => {
+			return element.chartType.toLowerCase().includes(e.target.value.toLowerCase());
 		});
-		
-			!rahul[0] && e.target.value === ""
-				? setChartTypeListD(chartTypeList)
-				: setChartTypeListD(rahul);
-		
+		!rahul[0] || e.target.value === ""
+			? setChartTypeListD(chartTypeList)
+			: setChartTypeListD(rahul); 
 	};
 	
 	

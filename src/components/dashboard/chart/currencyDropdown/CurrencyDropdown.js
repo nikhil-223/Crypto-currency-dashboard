@@ -51,12 +51,11 @@ const CurrencyDropdown = () => {
 	const handleChange=(e)=>{
 		setCurrencyDropName(e.target.value)
 		handleFocus();
-		let rahul= currencyListD.filter((element)=>{
-			return (e.target.value.toLowerCase().charAt(0) === element.charAt(0)) && (
-				(e.target.value.toLowerCase().charAt(1) === element.charAt(1)) || (e.target.value.charAt(1)==="")
-			);
+		let rahul= currencyList.filter((element)=>{
+			return element.toLowerCase().includes(e.target.value.toLowerCase());
 		})
-		!rahul[0] && e.target.value===""?  setCurrencyListD(currencyList):setCurrencyListD(rahul) 
+		console.log(rahul); 
+		!rahul[0] || e.target.value===""?  setCurrencyListD(currencyList):setCurrencyListD(rahul) 
 		
 	}
   return (
