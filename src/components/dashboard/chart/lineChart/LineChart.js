@@ -86,12 +86,7 @@ const LineChart = () => {
 		return;
 	});
 
-	const skipped = (ctx, value) =>
-		ctx.p0.skip || ctx.p1.skip ? value : undefined;
-	const up = (ctx, value) =>
-		ctx.p0.parsed.y < ctx.p0.parsed.y ? value : undefined;
-	const down = (ctx, value) =>
-		ctx.p0.parsed.y > ctx.p0.parsed.y ? value : undefined;
+	
 
 	const data = {
 		labels,
@@ -108,13 +103,7 @@ const LineChart = () => {
 				},
 				radius: 0,
 				spanGaps: true,
-				segment: {
-					borderColor: (ctx) =>
-						up(ctx, "rgb(255, 99, 132)") || down(ctx, "rgb(0, 0, 0)"),
-					borderColor: (ctx) =>
-						skipped(ctx, "rgb(0,0,0,0.2)") || down(ctx, "rgb(192,75,75)"),
-					borderDash: (ctx) => skipped(ctx, [6, 6]),
-				},
+				
 			},
 		],
 	};
