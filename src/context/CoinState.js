@@ -4,6 +4,8 @@ import CoinContext from "./CoinContext";
 const CoinState = (props) => {
 	const [coinList, setCoinList] = useState([]);
 	const [coinListD, setCoinListD] = useState(coinList);
+	const [sellCoinList, setSellCoinList] = useState(coinList);
+	const [buyCoinList, setBuyCoinList] = useState(coinList);
 
 	const [chartTypeList, setChartTypeList] = useState([
 		{ chartType: "price-time" },
@@ -93,7 +95,11 @@ const CoinState = (props) => {
 	const [cryptoDropName, setCryptoDropName] = useState("Bitcoin");
 	const [chartDropName, setChartDropName] = useState("Chart Type");
 	const [currencyDropName, setCurrencyDropName] = useState("INR ₹");
+	const [sellDropName, setSellDropName] = useState("Bitcoin");
+	const [buyDropName, setBuyDropName] = useState("Ethereum");
 	const [currency, setCurrency] = useState("inr");
+	const [sellValue, setSellValue] = useState("");
+	const [buyValue, setBuyValue] = useState("0");
 
 	const [theme, setTheme] = useState("dark");
 	const [chartData, setChartData] = useState({ prices: [] });
@@ -110,31 +116,31 @@ const CoinState = (props) => {
 				subtime = 24 * 60 * 60 * 1000;
 				break;
 			case "1W":
-				subtime = 7 * 24 * 60 * 60  * 1000;
+				subtime = 7 * 24 * 60 * 60 * 1000;
 				break;
 			case "1M":
-				subtime = 31 * 24  * 60 * 60 * 1000;
+				subtime = 31 * 24 * 60 * 60 * 1000;
 				break;
 			case "6M":
-				subtime = 24 * 60 * 60  * 31 * 6 * 1000;
+				subtime = 24 * 60 * 60 * 31 * 6 * 1000;
 				break;
 			case "1Y":
-				subtime = 365*  24 * 60 * 60 * 1000;
+				subtime = 365 * 24 * 60 * 60 * 1000;
 				break;
 			default:
-				subtime =  60 *  60 * 1000;
+				subtime = 60 * 60 * 1000;
 				break;
 		}
 		const rangeto = Date.now();
 		let rangefrom = rangeto - subtime;
-		let found ='bitcoin'
-		let foundelement = coinList.find((element) => element.name === cryptoDropName);
-		 found= foundelement!==undefined? foundelement.id:'bitcoin';
+		let found = "bitcoin";
+		let foundelement = coinList.find(
+			(element) => element.name === cryptoDropName
+		);
+		found = foundelement !== undefined ? foundelement.id : "bitcoin";
 		// API Call for chart data
 		const response = await fetch(
-			`https://api.coingecko.com/api/v3/coins/${
-				found
-			}/market_chart/range?vs_currency=${currency}&from=${Math.floor(
+			`https://api.coingecko.com/api/v3/coins/${found}/market_chart/range?vs_currency=${currency}&from=${Math.floor(
 				rangefrom / 1000
 			)}&to=${Math.floor(rangeto / 1000)}`,
 			{
@@ -164,6 +170,8 @@ const CoinState = (props) => {
 		const json = await response.json();
 		setCoinList(json);
 		setCoinListD(json);
+		setBuyCoinList(json);
+		setSellCoinList(json);
 	};
 
 	const getCurrencies = async () => {
@@ -199,6 +207,10 @@ const CoinState = (props) => {
 				setChartDropName,
 				currencyDropName,
 				currency,
+				sellValue,
+				setSellValue,
+				buyValue,
+				setBuyValue,
 				setCurrency,
 				setCurrencyDropName,
 				timePeriodList,
@@ -220,6 +232,14 @@ const CoinState = (props) => {
 				chartData,
 				setChartData,
 				setCurrencySymbols,
+				sellDropName,
+				setSellDropName,
+				buyDropName,
+				setBuyDropName,
+				sellCoinList,
+				setSellCoinList,
+				buyCoinList,
+				setBuyCoinList,
 			}}>
 			{props.children}
 		</CoinContext.Provider>
