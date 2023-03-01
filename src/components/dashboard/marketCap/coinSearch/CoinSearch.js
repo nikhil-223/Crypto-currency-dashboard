@@ -1,4 +1,4 @@
-import React,{useContext} from "react";
+import React, { useContext } from "react";
 import "./CoinSearch.scss";
 import { AiOutlineSearch } from "react-icons/ai";
 import { MdDarkMode } from "react-icons/md";
@@ -13,28 +13,39 @@ const CoinSearch = () => {
 		setSearchListD,
 		searchDropName,
 		setSearchDropName,
+		timePeriodList,
+		timePeriodD
 	} = useContext(CoinContext);
-	// modebtn 
-	const setmode=()=>{
-		setTheme(theme === "light"? "dark":"light")
-	}
+	// modebtn
+	const setmode = () => {
+		setTheme(theme === "light" ? "dark" : "light");
+		let time_period_item = Array.from(
+			document.getElementsByClassName("chart__time-period__item")
+		);
+		console.log(timePeriodD);
+		timePeriodList.map((item, index) => {
+			if (theme === "dark") {
+				time_period_item[index].style.background =
+					item.time === timePeriodD ? "rgba(205, 88, 136, 0.5)" : "#cee5e6";
+			} else {
+				time_period_item[index].style.background =
+					item.time === timePeriodD ? "rgba(205, 88, 136, 1)" : "#174d79";
+			}
+			return 0;
+		});
+	};
 
-	// search list 
+	// search list
 
-
-	
-
-	const handleChange=(e)=>{
-		setSearchDropName(e.target.value)
+	const handleChange = (e) => {
+		setSearchDropName(e.target.value);
 		let rahul = searchList.filter((element) => {
-			return element.name
-				.toLowerCase()
-				.includes(e.target.value.toLowerCase());
+			return element.name.toLowerCase().includes(e.target.value.toLowerCase());
 		});
 		!rahul[0] || e.target.value === ""
-			? setSearchListD(searchList) 
-			: setSearchListD(rahul); 
-	}
+			? setSearchListD(searchList)
+			: setSearchListD(rahul);
+	};
 
 	return (
 		<>
@@ -42,7 +53,7 @@ const CoinSearch = () => {
 				className={`coin-search bg-${
 					theme === "light" ? "light" : "dark"
 				} text-${theme === "light" ? "dark" : "light"}`}>
-				<span className="coin-search__search-icon" >
+				<span className="coin-search__search-icon">
 					<AiOutlineSearch />
 				</span>
 				<div className="coin-search__drop">
@@ -61,7 +72,8 @@ const CoinSearch = () => {
 					className={`coin-search__modeBtn bg-${
 						theme === "light" ? "light" : "dark"
 					} text-modebtn-${theme === "light" ? "dark" : "light"}`}
-					onClick={setmode}>
+					onClick={setmode}
+					>
 					{theme === "light" ? <MdDarkMode /> : <BsFillSunFill />}
 				</div>
 			</div>

@@ -91,10 +91,10 @@ a {
 }
 
 .bg-timePeriod-dark {
-	background:  #174d79;
+	background:  #174d79 ;
+	transition: all 0.2s;
 	&:hover{
-		background: linear-gradient(135deg, #132e61, hsl(237, 41%, 25%));
-
+		background: #183e5e;
 	}
 }
 .bg-timePeriod-light {

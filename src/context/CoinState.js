@@ -85,6 +85,7 @@ const CoinState = (props) => {
 	
 	const [currencyListD, setCurrencyListD] = useState(currencyList);
 	const [timePeriod, setTimePeriod] = useState("1H");
+	const [timePeriodD, setTimePeriodD] = useState("1H");
 	const [timePeriodList, setTimePeriodList] = useState([
 		{ time: "1H" },
 		{ time: "1D" },
@@ -261,6 +262,8 @@ const CoinState = (props) => {
 				setSearchListD,
 				searchList,
 				setSearchList,
+				timePeriodD,
+				setTimePeriodD,
 			}}>
 			{props.children}
 		</CoinContext.Provider>
