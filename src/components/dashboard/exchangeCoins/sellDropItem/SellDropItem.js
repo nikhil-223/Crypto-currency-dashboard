@@ -29,7 +29,7 @@ const SellDropItem = (props) => {
 
  return (
 		<div
-			className={`sellDropItem bg-droplist-${
+			className={`sellDropItem bg-list-item-${
 				theme === "light" ? "light" : "dark"
 			} text-${theme === "light" ? "dark" : "light"}`}
 			onClick={setOnClick}>

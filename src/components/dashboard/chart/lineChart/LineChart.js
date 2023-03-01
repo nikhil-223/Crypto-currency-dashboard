@@ -27,7 +27,7 @@ ChartJS.register(
 );
 
 const LineChart = () => {
-	const { chartData, chartRange } = useContext(CoinContext);
+	const { chartData, chartRange,theme } = useContext(CoinContext);
 
 	// lables
 
@@ -94,7 +94,10 @@ const LineChart = () => {
 			{
 				label: "Price",
 				data: dataArray,
-				borderColor: "rgb(255, 99, 132)",
+				borderColor: theme === "dark" ? "#CD5888" : "#579BB1",
+				borderWidth: 1.5,
+				backgroundColor:
+					theme === "dark" ? "rgba(0,0,0,0.15)" : "rgba(0,0,0,0.03)",
 				tension: 0.1,
 				pointRadius: 0,
 				fill: true,
@@ -103,7 +106,6 @@ const LineChart = () => {
 				},
 				radius: 0,
 				spanGaps: true,
-				
 			},
 		],
 	};

@@ -13,8 +13,15 @@ const MarketItem = (props) => {
 	const {currencySymbol}= useContext(CoinContext)
 	const market_cap_change_percentage_24h_toString = `${market_cap_change_percentage_24h}`;
 
+	const handleClickitem=(e)=>{
+		const item = e.target;
+		// const i = item.getElementsByClassName("market-item__detail__crypto__name")[0];
+		console.log(e);
+	}
+	
+
 	return (
-		<div className="market-item">
+		<div className="market-item" onClick={handleClickitem}>
 			<div className="market-item__detail">
 				<div className="market-item__detail__image">
 					<img src={image} alt="coinimg " />

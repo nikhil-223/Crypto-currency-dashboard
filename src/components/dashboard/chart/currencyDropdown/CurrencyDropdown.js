@@ -84,7 +84,7 @@ const CurrencyDropdown = () => {
 				</div>
 
 				<div
-					className={`currency-dropdown__list bg-dropdown-${
+					className={`currency-dropdown__list bg-list-${
 						theme === "light" ? "light" : "dark"
 					} text-${theme === "light" ? "dark" : "light"}`}
 					onClick={showDrop}

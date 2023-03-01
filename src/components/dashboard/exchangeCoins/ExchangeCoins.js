@@ -117,7 +117,7 @@ const ExchangeCoins = () => {
 				theme === "light" ? "light" : "dark"
 			} text-${theme === "light" ? "dark" : "light"}`}>
 			<div className="exchange-coins__title">Exchange Coins</div>
-			<div className="exchange-coins__sell">
+			<div className="exchange-coins__sell text-change-minus">
 				<span>Sell</span>
 				<div
 					className={`exchange-coins__sell__drop bg-dropdown-${
@@ -137,7 +137,7 @@ const ExchangeCoins = () => {
 						<AiOutlineCaretDown />
 					</div>
 					<div
-						className={`exchange-coins__sell__drop__list bg-dropdown-${
+						className={`exchange-coins__sell__drop__list bg-list-${
 							theme === "light" ? "light" : "dark"
 						} text-${theme === "light" ? "dark" : "light"}`}
 						style={{ display: "none" }}
@@ -149,7 +149,7 @@ const ExchangeCoins = () => {
 					</div>
 				</div>
 			</div>
-			<div className="exchange-coins__buy">
+			<div className="exchange-coins__buy text-change-plus">
 				<span>Buy</span>
 				<div
 					className={`exchange-coins__buy__drop bg-dropdown-${
@@ -169,7 +169,7 @@ const ExchangeCoins = () => {
 						<AiOutlineCaretDown />
 					</div>
 					<div
-						className={`exchange-coins__buy__drop__list bg-dropdown-${
+						className={`exchange-coins__buy__drop__list bg-list-${
 							theme === "light" ? "light" : "dark"
 						} text-${theme === "light" ? "dark" : "light"}`}
 						style={{ display: "none" }}

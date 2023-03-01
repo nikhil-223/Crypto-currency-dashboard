@@ -3,10 +3,14 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+	
 }
+
+
 :root{
 	font-size: 16px;
 }
+
 body {
 	font-family: "Roboto", Courier, monospace;
 	font-weight: 400;
@@ -26,68 +30,79 @@ a {
 }
 
 .bg-dark {
-	background-color: rgb(10, 10, 54);
+	background-color: #0A2647;
+	transition: all 0.4s;
 }
 .bg-light {
-	background-color: white;
+	background-color: #FAF8F1;
+	transition: all 0.4s linear;
 }
 
 .text-light {
-	color: white;
+	color: rgb(249, 232, 232);
+	transition: all 0.4s linear;
 }
 .text-dark {
-	color: black;
+	color: rgb(9, 59, 64);
+	transition: all 0.4s linear;
 }
 .text-modebtn-light {
 	
         color: rgb(255, 99, 132);
+		transition: all 0.4s linear;
 }
 .text-modebtn-dark {
 	
         color: rgb(255, 99, 132);
+		transition: all 0.4s linear;
 }
 
 .text-change-minus {
-	color: rgb(239, 126, 60);
+	color: #EB455F;
 }
 .text-change-plus {
-	color: rgb(49, 244, 127);
+	color: #03C988;
 }
 
+// drop box 
 .bg-dropdown-dark {
-	background-color: rgb(7, 44, 88);
+	background-color: #174d79;
+	transition: all 0.4s linear;
 }
 .bg-dropdown-light {
-	background-color: rgb(252, 247, 247);
+	background-color: #efdddd;
+	transition: all 0.4s linear;
+}
+
+// drop list 
+.bg-list-dark {
+	background-color: #19476e;
+}
+.bg-list-light {
+	background-color: #efdddd;
+}
+
+// drop list item 
+.bg-list-item-dark {
+	background-color: #0c375e;
+}
+.bg-list-item-light {
+	background-color: #efdddd;
 }
 
 .bg-timePeriod-dark {
-	background: linear-gradient(135deg, #0a2861, hsl(235, 54%, 21%));
+	background:  #174d79;
 	&:hover{
 		background: linear-gradient(135deg, #132e61, hsl(237, 41%, 25%));
 
 	}
 }
 .bg-timePeriod-light {
-	background: linear-gradient(135deg, #d8dbe0, #ffffff);
+	background: #cee5e6;
 }
 
 
-.bg-droplist-light{
-	background-color: white;
-	&:hover{
-		background-color: #dfe9fd;
-	
-	}
-}
-.bg-droplist-dark{
-	background-color: #071736;
-	
-	&:hover{
-		background-color: #123170;
 
-	}
-}
 input{
 	font-family: "Roboto", Courier, monospace;
 }

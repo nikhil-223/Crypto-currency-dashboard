@@ -23,7 +23,7 @@ const CoinDropItem = (props) => {
   }
   return (
 		<div
-			className={`coinDropItem bg-droplist-${
+			className={`coinDropItem bg-list-item-${
 				theme === "light" ? "light" : "dark"
 			} text-${theme === "light" ? "dark" : "light"}`}
 			onClick={handleclick}>

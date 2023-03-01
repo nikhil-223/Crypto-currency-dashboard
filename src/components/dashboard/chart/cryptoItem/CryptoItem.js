@@ -12,7 +12,7 @@ const CryptoItem = (props) => {
   
   return (
 		<div
-			className={`cryptoItem bg-droplist-${
+			className={`cryptoItem bg-list-item-${
 				theme === "light" ? "light" : "dark"
 			} text-${theme === "light" ? "dark" : "light"}`}
 			onClick={setOnClick}>

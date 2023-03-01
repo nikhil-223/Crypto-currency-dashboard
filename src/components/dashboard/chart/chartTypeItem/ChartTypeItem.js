@@ -11,7 +11,7 @@ const ChartTypeItem = (props) => {
   }
 	return (
 		<div
-			className={`chartTypeItem bg-droplist-${
+			className={`chartTypeItem bg-list-item-${
 				theme === "light" ? "light" : "dark"
 			} text-${theme === "light" ? "dark" : "light"}`}
 			onClick={handleClick}>

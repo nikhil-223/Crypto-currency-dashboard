@@ -143,7 +143,7 @@ const showCrypto = () => {
 					/>
 					<AiOutlineCaretDown onClick={showCrypto} />
 					<div
-						className={`chart__drop__crypto__list bg-dropdown-${
+						className={`chart__drop__crypto__list bg-list-${
 							theme === "light" ? "light" : "dark"
 						} text-${theme === "light" ? "dark" : "light"}`}
 						style={{ display: "none" }}
@@ -171,7 +171,7 @@ const showCrypto = () => {
 					/>
 					<AiOutlineCaretDown />
 					<div
-						className={`chart__drop__chart-type__list bg-dropdown-${
+						className={`chart__drop__chart-type__list bg-list-${
 							theme === "light" ? "light" : "dark"
 						} text-${theme === "light" ? "dark" : "light"}`}
 						style={{ display: "none" }}

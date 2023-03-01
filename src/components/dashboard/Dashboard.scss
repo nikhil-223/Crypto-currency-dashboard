@@ -25,12 +25,13 @@
     grid-template-columns: 100%;
     grid-template-rows: 43vh 82vh 40vh 40vh ;
     height: auto;
-    padding:0.5rem;
+    // padding:0.5rem;
     width: 100%;
-    gap: 0.2rem;
+    gap: 0rem;
 
     &>div{
-        border-radius: 0.3rem;
+        border-radius: 0;
+        border-bottom: 0.1rem solid rgba(11, 19, 27,0.3);
         box-shadow: 0rem 0rem 0rem 0rem rgb(208, 197, 197);
     }
     }
