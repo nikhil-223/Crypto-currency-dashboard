@@ -17,7 +17,6 @@ const CoinState = (props) => {
 	const [chartTypeListD, setChartTypeListD] = useState(chartTypeList);
 
 	const [currencyList, setCurrencyList] = useState([]);
-	const [currencyListD, setCurrencyListD] = useState(currencyList);
 	const [currencySymbols, setCurrencySymbols] = useState([
 		"$",
 		"Ξ",
@@ -82,6 +81,7 @@ const CoinState = (props) => {
 		"sats",
 	]);
 
+	const [currencyListD, setCurrencyListD] = useState(currencyList);
 	const [timePeriod, setTimePeriod] = useState("1H");
 	const [timePeriodList, setTimePeriodList] = useState([
 		{ time: "1H" },
@@ -99,6 +99,8 @@ const CoinState = (props) => {
 	const [buyDropName, setBuyDropName] = useState("Ethereum");
 	const [currency, setCurrency] = useState("inr");
 	const [sellValue, setSellValue] = useState("");
+	const [currencySymbol, setCurrencySymbol] = useState("₹");
+	const [currency_and_symbol, setCurrency_and_symbol] = useState([])
 	const [buyValue, setBuyValue] = useState("0");
 
 	const [theme, setTheme] = useState("dark");
@@ -188,7 +190,11 @@ const CoinState = (props) => {
 		);
 		const json = await response.json();
 		setCurrencyList(json);
-		setCurrencyListD(json);
+		let c_and_s = json.map((item, index) => {
+			return `${item} ${currencySymbols[index]}`;
+		});
+		setCurrency_and_symbol(c_and_s)
+		setCurrencyListD(c_and_s);
 	};
 
 	return (
@@ -240,6 +246,10 @@ const CoinState = (props) => {
 				setSellCoinList,
 				buyCoinList,
 				setBuyCoinList,
+				currencySymbol,
+				setCurrencySymbol,
+				currency_and_symbol,
+				setCurrency_and_symbol,
 			}}>
 			{props.children}
 		</CoinContext.Provider>

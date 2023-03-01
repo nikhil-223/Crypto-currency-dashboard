@@ -3,16 +3,23 @@ import CoinContext from '../../../../../context/CoinContext';
 import './CoinDropItem.scss'  
 
 const CoinDropItem = (props) => {
-  const { setCurrencyDropName, theme, setCurrencyListD, currencyList,setCurrency } =
-		useContext(CoinContext);
+  const {
+		setCurrencyDropName,
+		theme,
+		setCurrencyListD,
+		currency_and_symbol,
+		setCurrency,
+		setCurrencySymbol,
+	} = useContext(CoinContext);
 		
-  const { currencyName, currencySymbol } = props;
+  const { currencyName } = props;
 
   const handleclick=(e)=>{
     setCurrencyDropName(e.target.innerHTML);
 	let inhtml= e.target.innerHTML;
     setCurrency(inhtml.split(" ")[0].toLowerCase());
-	setCurrencyListD(currencyList);
+	setCurrencyListD(currency_and_symbol);
+	setCurrencySymbol(e.target.innerHTML.split(" ")[1])
   }
   return (
 		<div
@@ -20,7 +27,7 @@ const CoinDropItem = (props) => {
 				theme === "light" ? "light" : "dark"
 			} text-${theme === "light" ? "dark" : "light"}`}
 			onClick={handleclick}>
-			{`${currencyName} ${currencySymbol}`}
+			{currencyName}
 		</div>
 	);
 }

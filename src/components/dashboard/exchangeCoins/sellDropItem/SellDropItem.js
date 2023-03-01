@@ -10,7 +10,6 @@ const SellDropItem = (props) => {
 			setSellCoinList,
 			theme,
 			sellValue,
-			sellDropName,
 			buyDropName,
 			setBuyValue,
 		} = useContext(CoinContext);

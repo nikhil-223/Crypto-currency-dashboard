@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import CoinContext from "../../../../context/CoinContext";
 import "./MarketItem.scss";
 
 const MarketItem = (props) => {
@@ -8,8 +9,8 @@ const MarketItem = (props) => {
 		market_cap_change_percentage_24h,
 		image,
 		symbol,
-		currencySymbol,
 	} = props;
+	const {currencySymbol}= useContext(CoinContext)
 	const market_cap_change_percentage_24h_toString = `${market_cap_change_percentage_24h}`;
 
 	return (

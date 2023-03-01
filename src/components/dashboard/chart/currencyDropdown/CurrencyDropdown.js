@@ -7,14 +7,13 @@ import CoinContext from '../../../../context/CoinContext';
 const CurrencyDropdown = () => {
 	const context = useContext(CoinContext)
 	const {
-		currencyList,
 		setCurrencyDropName,
 		currencyDropName,
 		theme,
-		currencySymbols,
 		currencyListD,
 		setCurrencyListD,
-		getCurrencies 
+		getCurrencies,
+		currency_and_symbol,
 	} = context;
 
 	useEffect(() => {
@@ -51,11 +50,13 @@ const CurrencyDropdown = () => {
 	const handleChange=(e)=>{
 		setCurrencyDropName(e.target.value)
 		handleFocus();
-		let rahul= currencyList.filter((element)=>{
+		console.log(currency_and_symbol); 
+		let rahul = currency_and_symbol.filter((element) => {
 			return element.toLowerCase().includes(e.target.value.toLowerCase());
-		})
-		console.log(rahul); 
-		!rahul[0] || e.target.value===""?  setCurrencyListD(currencyList):setCurrencyListD(rahul) 
+		});
+		!rahul[0] || e.target.value === ""
+			? setCurrencyListD(currency_and_symbol)
+			: setCurrencyListD(rahul); 
 		
 	}
   return (
@@ -92,8 +93,7 @@ const CurrencyDropdown = () => {
 						return (
 							<CoinDropItem
 								key={i}
-								currencyName={currencyListD[i].toUpperCase()}
-								currencySymbol={currencySymbols[i]}
+								currencyName={item.toUpperCase()}
 							/>
 						);
 					})}

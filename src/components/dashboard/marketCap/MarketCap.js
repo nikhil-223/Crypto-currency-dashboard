@@ -25,7 +25,6 @@ const MarketCap = () => {
 							name={item.name}
 							image={item.image}
 							symbol={item.symbol}
-							currencySymbol={currencyDropName.split(" ")[1]}
 							current_price={item.current_price}
 							market_cap_change_percentage_24h={
 								item.market_cap_change_percentage_24h
