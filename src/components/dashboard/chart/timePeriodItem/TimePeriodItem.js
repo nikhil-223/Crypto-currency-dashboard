@@ -1,4 +1,4 @@
-import React, { useContext,useEffect } from "react";
+import React, { useContext } from "react";
 import CoinContext from "../../../../context/CoinContext";
 import "./TimePeriodItem.scss";
 
@@ -20,10 +20,6 @@ const TimePeriodItem = (props) => {
 		e.target.style.backgroundColor =
 			theme === "dark" ? "rgba(205, 88, 136,1)" : "rgba(205, 88, 136, 0.5)";
 	};
-
-	useEffect(() => {
-	  
-	}, [theme])
 	
 
 	return (

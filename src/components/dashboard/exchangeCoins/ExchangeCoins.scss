@@ -31,7 +31,7 @@
 	grid-area: 2/2/3/3;
 	padding: 1.5rem 2.5rem 1.5rem 3rem;
 	display: grid;
-	grid-template-columns: calc(60% - (1.5rem / 2)) calc(40% - (1.5rem / 2));
+	grid-template-columns:calc(60% - (1.5rem / 2)) calc(40% - (1.5rem / 2));
 	grid-template-rows: 2.5rem 15fr 15fr 02fr;
 	gap: 0.5rem;
 	column-gap: 1.5rem;
