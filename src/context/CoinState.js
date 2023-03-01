@@ -106,6 +106,7 @@ const CoinState = (props) => {
 	const [currencySymbol, setCurrencySymbol] = useState("₹");
 	const [currency_and_symbol, setCurrency_and_symbol] = useState([])
 	const [buyValue, setBuyValue] = useState("0");
+	const [pieItemAdd, setPieItemAdd] = useState("")
 
 	const [theme, setTheme] = useState("dark");
 	const [chartData, setChartData] = useState({ prices: [] });
@@ -271,6 +272,8 @@ const CoinState = (props) => {
 				setSearchList,
 				timePeriodD,
 				setTimePeriodD,
+				pieItemAdd,
+				setPieItemAdd,
 			}}>
 			{props.children}
 		</CoinContext.Provider>
