@@ -20,7 +20,7 @@ const BuyDropItem = (props) => {
 
 		let foundsell = coinList.find((element) => element.name === sellDropName);
 		let sellval = foundsell.current_price * sellValue;
-		let foundbuy = coinList.find((element) => element.name === buyDropName);
+		let foundbuy = coinList.find((element) => element.name === e.target.innerHTML);
 		let buyval = sellval / foundbuy.current_price;
 		console.log(buyval);
 		setBuyValue(buyval.toFixed(3));

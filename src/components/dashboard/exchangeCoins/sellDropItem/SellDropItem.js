@@ -19,11 +19,12 @@ const SellDropItem = (props) => {
 		setSellDropName(e.target.innerHTML);
 		setSellCoinList(coinList);
 
-		let foundsell = coinList.find((element) => element.name === sellDropName);
+		let foundsell = coinList.find((element) => element.name === e.target.innerHTML);
+		console.log(e.target.value);
+
 		let sellval = foundsell.current_price * sellValue;
 		let foundbuy = coinList.find((element) => element.name === buyDropName);
 		let buyval = sellval / foundbuy.current_price;
-		console.log(buyval);
 		setBuyValue(buyval.toFixed(3));
  };
 
