@@ -106,6 +106,11 @@ const CoinState = (props) => {
 	const [currencySymbol, setCurrencySymbol] = useState("₹");
 	const [currency_and_symbol, setCurrency_and_symbol] = useState([])
 	const [buyValue, setBuyValue] = useState("0");
+	const [pieLabels, setPieLabels] = useState([
+		"Bitcoin",
+		"Ethereum",
+		"Lido Staked Ether",
+	]);
 	const [pieItemAdd, setPieItemAdd] = useState("")
 
 	const [theme, setTheme] = useState("dark");
@@ -274,6 +279,8 @@ const CoinState = (props) => {
 				setTimePeriodD,
 				pieItemAdd,
 				setPieItemAdd,
+				pieLabels,
+				setPieLabels,
 			}}>
 			{props.children}
 		</CoinContext.Provider>
