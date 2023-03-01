@@ -82,7 +82,7 @@
 				overflow-y: scroll;
 				transform: translate(-0.5rem,5rem);
 				width: 9rem;
-				max-height: 6rem;
+				height: 6rem;
 				border-radius: 0.3rem;
 				box-shadow: 0.1rem 0.1rem 0.5rem rgba(0, 0, 0, 0.5);
 				@include scroll-bar();
@@ -131,7 +131,7 @@
 				overflow-y: scroll;
 				transform: translate(-0.5rem,5rem); 
 				width: 9rem;
-				max-height: 6rem;
+				height: 6rem;
 				border-radius: 0.3rem;
 				box-shadow: 0.1rem 0.1rem 0.5rem rgba(0, 0, 0, 0.5);
 				@include scroll-bar();
@@ -184,19 +184,6 @@
 
 	}
 
-	// &__exchange {
-	// 	grid-area: 4/1/5/3;
-	// 	@include display-flex(row, center, flex-end);
-
-	// 	&Btn {
-	// 		padding: 0.5rem 1rem;
-	// 		margin-bottom: 0.5rem;
-	// 		background-color: #1c5ddb;
-	// 		color: white;
-	// 		border-radius: 0.2rem;
-	// 		cursor: pointer;
-	// 	}
-	// }
 }
 @media only screen and (max-width: 500px) {
 	.exchange-coins {

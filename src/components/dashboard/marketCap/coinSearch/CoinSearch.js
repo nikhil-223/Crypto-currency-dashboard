@@ -6,37 +6,63 @@ import { BsFillSunFill } from "react-icons/bs";
 import CoinContext from "../../../../context/CoinContext";
 
 const CoinSearch = () => {
-	const {setTheme,theme} = useContext(CoinContext)
+	const {
+		setTheme,
+		theme,
+		searchList,
+		setSearchListD,
+		searchDropName,
+		setSearchDropName,
+	} = useContext(CoinContext);
+	// modebtn 
 	const setmode=()=>{
 		setTheme(theme === "light"? "dark":"light")
-		
 	}
+
+	// search list 
+
+
+	
+
+	const handleChange=(e)=>{
+		setSearchDropName(e.target.value)
+		let rahul = searchList.filter((element) => {
+			return element.name
+				.toLowerCase()
+				.includes(e.target.value.toLowerCase());
+		});
+		!rahul[0] || e.target.value === ""
+			? setSearchListD(searchList) 
+			: setSearchListD(rahul); 
+	}
+
 	return (
 		<>
 			<div
 				className={`coin-search bg-${
 					theme === "light" ? "light" : "dark"
 				} text-${theme === "light" ? "dark" : "light"}`}>
-				<span className="coin-search__search-icon">
+				<span className="coin-search__search-icon" >
 					<AiOutlineSearch />
 				</span>
-				<input
-					className={`coin-search__input bg-${
-						theme === "light" ? "light" : "dark"
-					} text-${theme === "light" ? "dark" : "light"}`}
-					type="text"
-					placeholder="Search by Coin"
-				/>
+				<div className="coin-search__drop">
+					<input
+						className={`bg-${theme === "light" ? "light" : "dark"} text-${
+							theme === "light" ? "dark" : "light"
+						}`}
+						htmlFor="search"
+						type="text"
+						placeholder="Search by Coin"
+						onChange={handleChange}
+						value={searchDropName}
+					/>
+				</div>
 				<div
 					className={`coin-search__modeBtn bg-${
 						theme === "light" ? "light" : "dark"
 					} text-modebtn-${theme === "light" ? "dark" : "light"}`}
 					onClick={setmode}>
-					{theme === "light" ? (
-						<MdDarkMode />
-					) : (
-						<BsFillSunFill />
-					)}
+					{theme === "light" ? <MdDarkMode /> : <BsFillSunFill />}
 				</div>
 			</div>
 		</>

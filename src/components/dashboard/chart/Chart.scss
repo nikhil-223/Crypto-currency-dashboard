@@ -105,7 +105,7 @@
 				transform: translate(-1rem,6rem);
 				overflow-y: scroll;
 				max-width: 9rem;
-				max-height: 7.7rem;
+				height: 7.7rem;
 				border-radius: 0.3rem;
 				box-shadow: 0.1rem 0.1rem 0.5rem rgba(0, 0, 0, 0.5);
 				@include scroll-bar();
@@ -136,7 +136,7 @@
 				overflow-y: scroll;
 				transform: translate(-1rem,6rem);
 				width: 9rem;
-				max-height: 7.7rem;
+				height: 7.7rem;
 				border-radius: 0.3rem;
 				box-shadow: 0.1rem 0.1rem 0.5rem rgba(0, 0, 0, 0.5);
 				@include scroll-bar();

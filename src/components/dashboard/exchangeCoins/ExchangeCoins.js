@@ -1,4 +1,4 @@
-import React, { useContext,useEffect } from "react";
+import React, { useContext} from "react";
 import "./ExchangeCoins.scss";
 import { AiOutlineCaretDown } from "react-icons/ai";
 import CoinContext from "../../../context/CoinContext";
@@ -137,7 +137,9 @@ const ExchangeCoins = () => {
 						<AiOutlineCaretDown />
 					</div>
 					<div
-						className="exchange-coins__sell__drop__list"
+						className={`exchange-coins__sell__drop__list bg-dropdown-${
+							theme === "light" ? "light" : "dark"
+						} text-${theme === "light" ? "dark" : "light"}`}
 						style={{ display: "none" }}
 						onClick={showSell}
 						onMouseLeave={hideSell}>
@@ -167,7 +169,9 @@ const ExchangeCoins = () => {
 						<AiOutlineCaretDown />
 					</div>
 					<div
-						className="exchange-coins__buy__drop__list"
+						className={`exchange-coins__buy__drop__list bg-dropdown-${
+							theme === "light" ? "light" : "dark"
+						} text-${theme === "light" ? "dark" : "light"}`}
 						style={{ display: "none" }}
 						onClick={showBuy}
 						onMouseLeave={hideBuy}>
@@ -192,7 +196,7 @@ const ExchangeCoins = () => {
 			</div>
 			<div className="exchange-coins__get-buyValue">
 				<label htmlFor="sell">Buy value</label>
-				<div>{buyValue}</div> 
+				<div>{buyValue}</div>
 			</div>
 			{/* <div className="exchange-coins__exchange">
 				<div className="exchange-coins__exchangeBtn">Exchange</div>

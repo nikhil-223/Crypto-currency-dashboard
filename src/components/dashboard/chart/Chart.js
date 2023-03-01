@@ -118,7 +118,9 @@ const showCrypto = () => {
 			className={`chart bg-${theme === "light" ? "light" : "dark"} text-${
 				theme === "light" ? "dark" : "light"
 			}`}>
-			<div className="chart__currency-dropdown"><CurrencyDropdown/></div>
+			<div className="chart__currency-dropdown">
+				<CurrencyDropdown />
+			</div>
 			<div className="chart__time-period">
 				{timePeriodList.map((item) => {
 					return <TimePeriodItem key={item.time} time={item.time} />;
@@ -141,7 +143,9 @@ const showCrypto = () => {
 					/>
 					<AiOutlineCaretDown onClick={showCrypto} />
 					<div
-						className="chart__drop__crypto__list"
+						className={`chart__drop__crypto__list bg-dropdown-${
+							theme === "light" ? "light" : "dark"
+						} text-${theme === "light" ? "dark" : "light"}`}
 						style={{ display: "none" }}
 						onClick={showCrypto}
 						onMouseLeave={hideCrypto}>
@@ -167,19 +171,24 @@ const showCrypto = () => {
 					/>
 					<AiOutlineCaretDown />
 					<div
-						className="chart__drop__chart-type__list"
+						className={`chart__drop__chart-type__list bg-dropdown-${
+							theme === "light" ? "light" : "dark"
+						} text-${theme === "light" ? "dark" : "light"}`}
 						style={{ display: "none" }}
 						onMouseLeave={hideChartType}>
 						{chartTypeListD.map((item) => {
 							return (
-								<ChartTypeItem key={item.chartType} chartType={item.chartType} />
+								<ChartTypeItem
+									key={item.chartType}
+									chartType={item.chartType}
+								/>
 							);
 						})}
 					</div>
 				</div>
 			</div>
 			<div className="chart__graph">
-				<LineChart/>
+				<LineChart />
 			</div>
 		</div>
 	);

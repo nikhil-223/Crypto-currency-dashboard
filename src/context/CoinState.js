@@ -4,9 +4,11 @@ import CoinContext from "./CoinContext";
 const CoinState = (props) => {
 	const [coinList, setCoinList] = useState([]);
 	const [coinListD, setCoinListD] = useState(coinList);
+	const [searchList, setSearchList] = useState(coinList)
+	const [searchListD, setSearchListD] = useState(searchList)
 	const [sellCoinList, setSellCoinList] = useState(coinList);
 	const [buyCoinList, setBuyCoinList] = useState(coinList);
-
+	
 	const [chartTypeList, setChartTypeList] = useState([
 		{ chartType: "price-time" },
 		{ chartType: "price-time1" },
@@ -80,7 +82,7 @@ const CoinState = (props) => {
 		"bits",
 		"sats",
 	]);
-
+	
 	const [currencyListD, setCurrencyListD] = useState(currencyList);
 	const [timePeriod, setTimePeriod] = useState("1H");
 	const [timePeriodList, setTimePeriodList] = useState([
@@ -91,10 +93,11 @@ const CoinState = (props) => {
 		{ time: "6M" },
 		{ time: "1Y" },
 	]);
-
+	
+	const [currencyDropName, setCurrencyDropName] = useState("INR ₹");
 	const [cryptoDropName, setCryptoDropName] = useState("Bitcoin");
 	const [chartDropName, setChartDropName] = useState("Chart Type");
-	const [currencyDropName, setCurrencyDropName] = useState("INR ₹");
+	const [searchDropName, setSearchDropName] = useState("");
 	const [sellDropName, setSellDropName] = useState("Bitcoin");
 	const [buyDropName, setBuyDropName] = useState("Ethereum");
 	const [currency, setCurrency] = useState("inr");
@@ -172,6 +175,8 @@ const CoinState = (props) => {
 		const json = await response.json();
 		setCoinList(json);
 		setCoinListD(json);
+		setSearchList(json);
+		setSearchListD(json);
 		setBuyCoinList(json);
 		setSellCoinList(json);
 	};
@@ -250,6 +255,12 @@ const CoinState = (props) => {
 				setCurrencySymbol,
 				currency_and_symbol,
 				setCurrency_and_symbol,
+				searchDropName,
+				setSearchDropName,
+				searchListD,
+				setSearchListD,
+				searchList,
+				setSearchList,
 			}}>
 			{props.children}
 		</CoinContext.Provider>

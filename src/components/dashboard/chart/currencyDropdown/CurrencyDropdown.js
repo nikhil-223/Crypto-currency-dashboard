@@ -61,8 +61,7 @@ const CurrencyDropdown = () => {
 	}
   return (
 		<>
-			<div
-				className={`currency-dropdown `}>
+			<div className={`currency-dropdown `}>
 				<div
 					className={`currency-dropdown__box bg-dropdown-${
 						theme === "light" ? "light" : "dark"
@@ -85,17 +84,14 @@ const CurrencyDropdown = () => {
 				</div>
 
 				<div
-					className={`currency-dropdown__list `}
+					className={`currency-dropdown__list bg-dropdown-${
+						theme === "light" ? "light" : "dark"
+					} text-${theme === "light" ? "dark" : "light"}`}
 					onClick={showDrop}
 					onMouseLeave={hideDrop}
 					style={{ display: "none" }}>
 					{currencyListD.map((item, i) => {
-						return (
-							<CoinDropItem
-								key={i}
-								currencyName={item.toUpperCase()}
-							/>
-						);
+						return <CoinDropItem key={i} currencyName={item.toUpperCase()} />;
 					})}
 				</div>
 			</div>

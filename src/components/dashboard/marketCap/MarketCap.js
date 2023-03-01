@@ -5,7 +5,7 @@ import './MarketCap.scss'
 import MarketItem from './marketItem/MarketItem';
 
 const MarketCap = () => {
-	const { getCoins,coinList, theme, currencyDropName } = useContext(CoinContext);
+	const { getCoins,coinList,searchListD, theme, currencyDropName } = useContext(CoinContext);
 	
 	useEffect(() => {
 		getCoins();
@@ -18,7 +18,7 @@ const MarketCap = () => {
 			}`}>
 			<CoinSearch/>
 			<div className="market-cap__items">
-				{coinList.map((item,i) => {
+				{searchListD.map((item,i) => {
 					return (
 						<MarketItem
 							key={item.id}
