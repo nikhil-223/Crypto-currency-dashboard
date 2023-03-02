@@ -12,7 +12,7 @@ import {
 	LineController,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
-import CoinContext from "../../../../context/CoinContext";
+import CoinContext from "../../../../../context/CoinContext";
 
 ChartJS.register(
 	CategoryScale,

@@ -10,11 +10,9 @@ const CoinState = (props) => {
 	const [buyCoinList, setBuyCoinList] = useState(coinList);
 	
 	const [chartTypeList, setChartTypeList] = useState([
-		{ chartType: "price-time" },
-		{ chartType: "price-time1" },
-		{ chartType: "price-time2" },
-		{ chartType: "price-time3" },
-		{ chartType: "price-time4" },
+		{ chartType: "Line Chart", path: "/lineChart" },
+		{ chartType: "Bar Chart", path: "/barChart" },
+		{ chartType: "CandleStick", path: "/CandleStick" },
 	]);
 	const [chartTypeListD, setChartTypeListD] = useState(chartTypeList);
 
@@ -99,7 +97,8 @@ const CoinState = (props) => {
 	const [currencyName, setCurrencyName] = useState("INR ₹");
 	const [cryptoDropName, setCryptoDropName] = useState("Bitcoin");
 	const [coinName, setCoinName] = useState("Bitcoin");
-	const [chartDropName, setChartDropName] = useState("Chart Type");
+	const [chartDropName, setChartDropName] = useState("Line Chart");
+	const [chartName, setChartName] = useState("Line Chart");
 	const [searchDropName, setSearchDropName] = useState("");
 	const [sellDropName, setSellDropName] = useState("Bitcoin");
 	const [buyDropName, setBuyDropName] = useState("Ethereum");
@@ -304,7 +303,11 @@ const CoinState = (props) => {
 				coinName,
 				setCoinName,
 				currencyName,
-				setCurrencyName,alert, setAlert,
+				setCurrencyName,
+				alert,
+				setAlert,
+				chartName,
+				setChartName,
 			}}>
 			{props.children}
 		</CoinContext.Provider>

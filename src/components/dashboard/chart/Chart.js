@@ -1,11 +1,13 @@
 import React, { useContext,useEffect } from "react";
-import "./Chart.scss";
 import { AiOutlineCaretDown } from "react-icons/ai";
+import { IoMdRefresh } from "react-icons/io";
+
+import "./Chart.scss";
 import CryptoItem from "./cryptoItem/CryptoItem";
 import ChartTypeItem from "./chartTypeItem/ChartTypeItem";
 import CoinContext from "../../../context/CoinContext";
 import TimePeriodItem from "./timePeriodItem/TimePeriodItem";
-import LineChart from "./lineChart/LineChart";
+import LineChart from "./charts/lineChart/LineChart"; 
 import CurrencyDropdown from './currencyDropdown/CurrencyDropdown'
 
 const Chart = () => {
@@ -25,7 +27,10 @@ const Chart = () => {
 		getChartData,
 		cryptoDropName,
 		chartRange,
-		coinName,currencyName
+		coinName,
+		currencyName,
+		getCoins
+		// chartName,
 	} = context;
 
 	
@@ -93,7 +98,7 @@ const showCrypto = () => {
 		const droplist = document.getElementsByClassName(
 			"chart__drop__chart-type__list"
 		)[0];
-		droplist.style.display = "flex";
+		droplist.style.display = "flex"; 
 	};
 
 	const handleChangeChartType = (e) => {
@@ -107,8 +112,12 @@ const showCrypto = () => {
 			: setChartTypeListD(rahul); 
 	};
 	
-	
-	
+	// refresh 
+
+	const reload=()=>{
+		getChartData();
+		getCoins();
+	}
 	
 // Jsx 
 
@@ -154,10 +163,10 @@ const showCrypto = () => {
 					</div>
 				</div>
 				<div
+					style={{ display: "none" }}
 					className={`chart__drop__chart-type bg-dropdown-${
 						theme === "light" ? "light" : "dark"
-					} text-${theme === "light" ? "dark" : "light"}`}
-					onClick={showChartType}>
+					} text-${theme === "light" ? "dark" : "light"}`}>
 					<input
 						className={`bg-${theme === "light" ? "light" : "dark"} text-${
 							theme === "light" ? "dark" : "light"
@@ -168,13 +177,14 @@ const showCrypto = () => {
 						onFocus={handleFocusChartType}
 						onChange={handleChangeChartType}
 					/>
-					<AiOutlineCaretDown />
+					<AiOutlineCaretDown onClick={showChartType} />
 					<div
 						className={`chart__drop__chart-type__list bg-list-${
 							theme === "light" ? "light" : "dark"
 						} text-${theme === "light" ? "dark" : "light"}`}
 						style={{ display: "none" }}
-						onMouseLeave={hideChartType}>
+						onMouseLeave={hideChartType}
+						onClick={showChartType}>
 						{chartTypeListD.map((item) => {
 							return (
 								<ChartTypeItem
@@ -184,6 +194,13 @@ const showCrypto = () => {
 							);
 						})}
 					</div>
+				</div>
+				<div
+					className={`chart__drop__reload bg-dropdown-${
+						theme === "light" ? "light" : "dark"
+					} text-${theme === "light" ? "dark" : "light"}`}
+					onClick={reload}>
+					<IoMdRefresh />
 				</div>
 			</div>
 			<div className="chart__graph">
