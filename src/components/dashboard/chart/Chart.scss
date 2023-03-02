@@ -188,13 +188,16 @@
 			grid-area:1/2/2/3 ;
 			width: 100%;
 			gap: 0.5rem;
-			justify-content: center;
+			justify-content: flex-end;
 
 			& > div {
 				height: 2rem;
 				font-size: 0.9rem;
 			}
 
+			&__reload{
+				margin-right: 1rem;
+			}
 			&__crypto {
 				width: 6.5rem;
 
