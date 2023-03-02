@@ -96,7 +96,9 @@ const CoinState = (props) => {
 	]);
 	
 	const [currencyDropName, setCurrencyDropName] = useState("INR ₹");
+	const [currencyName, setCurrencyName] = useState("INR ₹");
 	const [cryptoDropName, setCryptoDropName] = useState("Bitcoin");
+	const [coinName, setCoinName] = useState("Bitcoin");
 	const [chartDropName, setChartDropName] = useState("Chart Type");
 	const [searchDropName, setSearchDropName] = useState("");
 	const [sellDropName, setSellDropName] = useState("Bitcoin");
@@ -163,6 +165,7 @@ const CoinState = (props) => {
 			}
 		);
 		const json = await response.json();
+		console.log('change');
 		setChartData(json);
 
 		// console.log(json);
@@ -281,6 +284,10 @@ const CoinState = (props) => {
 				setPieItemAdd,
 				pieLabels,
 				setPieLabels,
+				coinName,
+				setCoinName,
+				currencyName,
+				setCurrencyName,
 			}}>
 			{props.children}
 		</CoinContext.Provider>

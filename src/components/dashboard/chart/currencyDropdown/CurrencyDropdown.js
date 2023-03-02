@@ -50,7 +50,6 @@ const CurrencyDropdown = () => {
 	const handleChange=(e)=>{
 		setCurrencyDropName(e.target.value)
 		handleFocus();
-		console.log(currency_and_symbol); 
 		let rahul = currency_and_symbol.filter((element) => {
 			return element.toLowerCase().includes(e.target.value.toLowerCase());
 		});

@@ -10,13 +10,14 @@ const MarketItem = (props) => {
 		image,
 		symbol,
 	} = props;
-	const { currencySymbol, setCryptoDropName, setPieItemAdd } =
+	const { currencySymbol, setCryptoDropName, setPieItemAdd ,setCoinName} =
 		useContext(CoinContext);
 	const market_cap_change_percentage_24h_toString = `${market_cap_change_percentage_24h}`;
 
 	const handleClick = (e) => {
 		const element = e.target;
 		const market_item = element.closest(".market-item");
+		setCoinName(market_item.getAttribute("data-tracker"));
 		setCryptoDropName(market_item.getAttribute("data-tracker"));
 		setPieItemAdd(market_item.getAttribute("data-tracker"));
 	};

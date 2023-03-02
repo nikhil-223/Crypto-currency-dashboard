@@ -4,9 +4,10 @@ import './CryptoItem.scss'
 
 const CryptoItem = (props) => {
   const {name}=props;
-  const {setCryptoDropName,theme,setCoinListD,coinList } = useContext(CoinContext)
+  const {setCryptoDropName,theme,setCoinListD,coinList,setCoinName } = useContext(CoinContext)
   const setOnClick=(e)=>{
     setCryptoDropName(e.target.innerHTML);
+	setCoinName(e.target.innerHTML)
 	setCoinListD(coinList) 
   }
   

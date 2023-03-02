@@ -9,6 +9,7 @@ const CoinDropItem = (props) => {
 		setCurrencyListD,
 		currency_and_symbol,
 		setCurrency,
+		setCurrencyName,
 		setCurrencySymbol,
 	} = useContext(CoinContext);
 		
@@ -16,6 +17,7 @@ const CoinDropItem = (props) => {
 
   const handleclick=(e)=>{
     setCurrencyDropName(e.target.innerHTML);
+	setCurrencyName(e.target.innerHTML)
 	let inhtml= e.target.innerHTML;
     setCurrency(inhtml.split(" ")[0].toLowerCase());
 	setCurrencyListD(currency_and_symbol);

@@ -25,7 +25,7 @@ const Chart = () => {
 		getChartData,
 		cryptoDropName,
 		chartRange,
-		currencyDropName
+		coinName,currencyName
 	} = context;
 
 	
@@ -34,7 +34,7 @@ useEffect(() => {
 	getChartData();
 	
 	// eslint-disable-next-line
-},[cryptoDropName,currencyDropName,chartRange]);
+},[coinName,currencyName,chartRange]);
 
 // const lsn=()=>localStorage.setItem('timeperiod',"1H")
 // window.onload =lsn();
