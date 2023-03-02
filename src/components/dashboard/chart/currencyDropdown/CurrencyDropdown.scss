@@ -70,7 +70,7 @@
 		z-index: 888;
 	}
 }
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 600px) {
 	.currency-dropdown {
 		grid-area: 1/1/2/2;
 		display: flex;
@@ -83,6 +83,29 @@
 			& input[for="currency"] {
 				font-size: 0.8rem;
 			}
+		}
+	}
+}
+
+@media only screen and  (min-width:600px) and (max-width:950px){
+	.currency-dropdown {
+		grid-area: 1/1/2/2;
+		display: flex;
+		justify-content: center;
+
+		&__box {
+			height: 2.2rem;
+			width: 100%;
+			gap: 0.2rem;
+			& input[for="currency"] {
+				font-size: 0.8rem;
+			}
+		}
+
+		&__list{
+			height: 9rem;
+			width: 7rem;
+			transform: translate(0rem, 7rem);
 		}
 	}
 }

@@ -13,8 +13,7 @@ const Portfolio = () => {
 			<div className="portfolio__head">
 				<div className="portfolio__head__title">Portfolio</div>
 				<div className="portfolio__head__value">
-					<h4 style={{ display: "inline" }}>Total value :</h4>
-					<span>1000$</span>
+					<span>Totalvalue:1000$</span>
 				</div>
 			</div>
 			<div className="portfolio__data">
