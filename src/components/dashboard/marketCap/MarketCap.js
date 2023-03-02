@@ -5,10 +5,10 @@ import './MarketCap.scss'
 import MarketItem from './marketItem/MarketItem';
 
 const MarketCap = () => {
-	const { getCoins,coinList,searchListD, theme, currencyDropName } = useContext(CoinContext);
+	const { getCoins,searchListD, theme, currencyDropName } = useContext(CoinContext);
 	
 	useEffect(() => {
-		getCoins();
+		getCoins(); 
 		// eslint-disable-next-line
 	}, [currencyDropName]);
   return (

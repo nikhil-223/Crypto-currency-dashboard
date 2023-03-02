@@ -1,0 +1,16 @@
+.alert{
+    position: fixed;
+    width:15rem;
+    height: auto;
+    padding: 1rem;
+    bottom: 2rem;
+    left: 1rem;
+    border-radius: 0.5rem;
+    transform: translate(-18rem);
+    z-index: 5555;
+    transition: all 1s;
+}
+
+.show_alert{
+    transform: translate(0rem);
+}

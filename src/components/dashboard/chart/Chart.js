@@ -31,13 +31,11 @@ const Chart = () => {
 	
 
 useEffect(() => {
+
 	getChartData();
-	
+
 	// eslint-disable-next-line
 },[coinName,currencyName,chartRange]);
-
-// const lsn=()=>localStorage.setItem('timeperiod',"1H")
-// window.onload =lsn();
 
 	// cryptodrop
 const showCrypto = () => {

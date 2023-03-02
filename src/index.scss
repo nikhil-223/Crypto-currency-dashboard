@@ -30,7 +30,7 @@ a {
 }
 
 .bg-dark {
-	background-color: #07182d;
+	background-color: rgb(7, 24, 45);
 	transition: all 0.4s;
 }
 .bg-light {
@@ -92,6 +92,17 @@ a {
 
 .bg-timePeriod-dark {
 	background:  #174d79 ;
+	transition: all 0.2s;
+	&:hover{
+		background: #183e5e;
+	}
+}
+.bg-alert-light {
+	background: rgb(226, 131, 145);
+}
+
+.bg-alert-dark {
+	background:  rgb(235, 69, 95);
 	transition: all 0.2s;
 	&:hover{
 		background: #183e5e;

@@ -118,7 +118,10 @@ const CoinState = (props) => {
 	const [theme, setTheme] = useState("dark");
 	const [chartData, setChartData] = useState({ prices: [] });
 	const [chartRange, setChartRange] = useState("");
-	// const [rangeToPoint, setRangeToPoint] = useState()
+	const [alert, setAlert] = useState({
+		type:"warning",
+		message:""
+	})
 
 	const getChartData = async () => {
 		let subtime;
@@ -152,23 +155,29 @@ const CoinState = (props) => {
 			(element) => element.name === cryptoDropName
 		);
 		found = foundelement !== undefined ? foundelement.id : "bitcoin";
-		// API Call for chart data
-		const response = await fetch(
-			`https://api.coingecko.com/api/v3/coins/${found}/market_chart/range?vs_currency=${currency}&from=${Math.floor(
-				rangefrom / 1000
-			)}&to=${Math.floor(rangeto / 1000)}`,
-			{
-				method: "GET",
-				headers: {
-					"Content-Type": "application/json",
-				},
-			}
-		);
-		const json = await response.json();
-		console.log('change');
-		setChartData(json);
+			
+		try {
+			// API Call for chart data
+			const response = await fetch(
+				`https://api.coingecko.com/api/v3/coins/${found}/market_chart/range?vs_currency=${currency}&from=${Math.floor(
+					rangefrom / 1000
+				)}&to=${Math.floor(rangeto / 1000)}`,
+				{
+					method: "GET",
+					headers: {
+						"Content-Type": "application/json",
+					},
+				}
+			);
+			const json = await response.json();
+			setChartData(json);
+			
+		} catch (error) {
+			console.log(error.message,'chart data');
+			setAlert({type:'warning',message:'API request limit exceeded... Try again later'})
+		}
 
-		// console.log(json);
+		
 	};
 
 	const getCoins = async () => {
@@ -191,7 +200,8 @@ const CoinState = (props) => {
 		setBuyCoinList(json);
 		setSellCoinList(json);
 		} catch (error) {
-			console.log(error);
+			console.log(error.message)
+			setAlert({type:'warning',message:'Failed to fetch coins'})
 		}
 		
 		
@@ -199,24 +209,31 @@ const CoinState = (props) => {
 	};
 
 	const getCurrencies = async () => {
-		// API Call
-
-		const response = await fetch(
-			`https://api.coingecko.com/api/v3/simple/supported_vs_currencies`,
-			{
-				method: "GET",
-				headers: {
-					"Content-Type": "application/json",
-				},
-			}
-		);
-		const json = await response.json();
-		setCurrencyList(json);
-		let c_and_s = json.map((item, index) => {
-			return `${item} ${currencySymbols[index]}`;
-		});
-		setCurrency_and_symbol(c_and_s)
-		setCurrencyListD(c_and_s);
+		
+		try {
+			// API Call
+	
+			const response = await fetch(
+				`https://api.coingecko.com/api/v3/simple/supported_vs_currencies`,
+				{
+					method: "GET",
+					headers: {
+						"Content-Type": "application/json",
+					},
+				}
+			);
+			const json = await response.json();
+			setCurrencyList(json);
+			let c_and_s = json.map((item, index) => {
+				return `${item} ${currencySymbols[index]}`;
+			});
+			setCurrency_and_symbol(c_and_s)
+			setCurrencyListD(c_and_s);
+			
+		} catch (error) {
+			console.log(error.message);
+			setAlert({type:'warning',message:'Failed to fetch currency'})
+		}
 	};
 
 	return (
@@ -287,7 +304,7 @@ const CoinState = (props) => {
 				coinName,
 				setCoinName,
 				currencyName,
-				setCurrencyName,
+				setCurrencyName,alert, setAlert,
 			}}>
 			{props.children}
 		</CoinContext.Provider>

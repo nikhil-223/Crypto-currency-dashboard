@@ -24,14 +24,15 @@ ChartJS.register(
 	Tooltip,
 	Legend,
 	LineController,
-);
-
-const LineChart = () => {
-	const { chartData, chartRange,theme } = useContext(CoinContext);
-
-	// lables
-
-	let labels = [];
+	);
+	
+	const LineChart = () => {
+		const { chartData, chartRange,theme } = useContext(CoinContext);
+		
+		// lables
+		
+		let labels = [];
+		let dataArray = [];
 	chartData.prices.map((element) => {
 		const timestamp = new Date(element[0]);
 		const weekday = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
@@ -76,17 +77,11 @@ const LineChart = () => {
 				break;
 		}
 		// eslint-disable-next-line
-		return;
-	});
-
-	let dataArray = [];
-	chartData.prices.map((element) => {
 		dataArray.push(element[1]);
-		// eslint-disable-next-line
-		return;
+		return 0;
 	});
 
-	
+
 
 	const data = {
 		labels,
