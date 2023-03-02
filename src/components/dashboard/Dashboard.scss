@@ -4,7 +4,9 @@
     height: 100vh;
     background-color: #5189aa;
     display: grid;
-    padding: 1rem;
+    justify-content: center;
+    align-content: center;
+    padding: 2rem;
 
     // overflow: scroll;
     grid-template-columns: minmax(26rem,33rem)  minmax(23rem,33rem) minmax(20rem ,24rem);
