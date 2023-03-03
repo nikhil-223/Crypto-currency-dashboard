@@ -204,6 +204,9 @@ const showCrypto = () => {
 				</div>
 			</div>
 			<div className="chart__graph">
+				<div className="chart__graph__layer">
+					Wait...
+				</div>
 				<LineChart />
 			</div>
 		</div>

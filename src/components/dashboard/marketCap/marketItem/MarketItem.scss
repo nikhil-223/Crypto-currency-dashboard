@@ -10,6 +10,7 @@
 	padding: 1.5rem;
 	// border-bottom: 0.01rem solid #efdada;
 	@include display-flex(row, space-between, center);
+	gap: 1.5rem;
 
 	&__detail {
 		@include display-flex(row, center, flex-start);

@@ -33,14 +33,14 @@
 	grid-area: 1/1/2/3;
 	padding: 1rem 1.5rem 1.5rem 1.5rem;
 	display: grid;
-	grid-template-columns:12% 43fr auto;
+	grid-template-columns: 12% 43fr auto;
 	grid-template-rows: 15fr 83%;
-	gap: 2rem;
+	gap: 1rem;
 	row-gap: 1rem;
 
-	&__currency-dropdown{
+	&__currency-dropdown {
 		grid-area: 1/1/2/2;
-		@include display-flex(row, center, center)
+		@include display-flex(row, center, center);
 	}
 	// time period
 
@@ -60,7 +60,7 @@
 		}
 	}
 
-	// dropdown list 
+	// dropdown list
 	&__drop {
 		grid-area: 1/3/2/4;
 		width: auto;
@@ -82,19 +82,22 @@
 			}
 		}
 
-		&__reload{
-			width: 2.8rem;
+		&__reload {
+			min-width: 2rem;
+			max-width: 2.8rem;
 			font-size: 1.5rem;
 			justify-content: center !important;
 			padding: 0 !important;
-			
 		}
 		&__crypto {
-			width: 12rem;
+			max-width: 12rem;
+			min-width:7rem;
+			display: flex;
+			gap: 0.5rem;
 
 			& input[for="crypto"] {
 				font-size: 1rem;
-				width: 100%;
+				width: 80%;
 				height: 100%;
 				background-color: transparent;
 				outline: none;
@@ -108,7 +111,7 @@
 				justify-content: flex-start;
 				align-items: center;
 				position: absolute;
-				transform: translate(-1rem,6rem);
+				transform: translate(-1rem, 6rem);
 				overflow-y: scroll;
 				max-width: 9rem;
 				height: 7.7rem;
@@ -121,7 +124,6 @@
 		&__chart-type {
 			width: 12.5rem;
 
-			
 			& input[for="chartType"] {
 				font-size: 1rem;
 				width: 100%;
@@ -140,7 +142,7 @@
 
 				position: absolute;
 				overflow-y: scroll;
-				transform: translate(-1rem,6rem);
+				transform: translate(-1rem, 6rem);
 				width: 9rem;
 				height: 7.7rem;
 				border-radius: 0.3rem;
@@ -151,27 +153,37 @@
 	}
 
 	&__graph {
+		overflow: hidden;
 		grid-area: 2/1/3/4;
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		width: 100%;
 		height: 100%;
+
+		&__layer {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			position: absolute;
+			width: 5rem;
+			height: 5rem;
+			// background-color: red;
+			z-index: -1;
+		}
 	}
 }
 
 @media only screen and (max-width: 600px) {
 	.chart {
-		width:100%;
+		width: 100%;
 		grid-area: 1/1/2/2;
-		grid-template-columns:29fr 71fr;
+		grid-template-columns: 29fr 71fr;
 		grid-template-rows: 12% 1fr 12%;
 		padding: 0.5rem;
 
-		
-
 		&__time-period {
-			grid-area: 3/1/4/3 ;
+			grid-area: 3/1/4/3;
 			width: 100%;
 			flex-direction: row;
 			justify-content: center;
@@ -185,7 +197,7 @@
 		}
 
 		&__drop {
-			grid-area:1/2/2/3 ;
+			grid-area: 1/2/2/3;
 			width: 100%;
 			gap: 0.5rem;
 			justify-content: flex-end;
@@ -195,13 +207,13 @@
 				font-size: 0.9rem;
 			}
 
-			&__reload{
+			&__reload {
 				margin-right: 1rem;
 			}
 			&__crypto {
 				width: 6.5rem;
 
-				& input[for="crypto"]{
+				& input[for="crypto"] {
 					font-size: 0.8rem;
 				}
 				&__list {
@@ -210,9 +222,9 @@
 			}
 
 			&__chart-type {
-				width: 7rem; 
+				width: 7rem;
 
-				& input[for="chartType"]{
+				& input[for="chartType"] {
 					font-size: 0.8rem;
 				}
 				&__list {
@@ -222,8 +234,8 @@
 		}
 
 		&__graph {
-			grid-area:2/1/3/3 ;
-			padding:0 0.9rem;
+			grid-area: 2/1/3/3;
+			padding: 0 0.9rem;
 			justify-self: center;
 			width: 100%;
 			height: 100%;
@@ -231,22 +243,23 @@
 	}
 }
 
-@media only screen and  (min-width:600px) and (max-width:950px){
+@media only screen and (min-width: 600px) and (max-width: 950px) {
 	.chart {
 		grid-area: 1/1/2/3;
-		grid-template-columns:minmax(12%,15%) 79% 6% ;
+		grid-template-columns: minmax(12%, 15%) 79% 6%;
 		grid-template-rows: 15% 83%;
 		padding: 1rem;
 		gap: 0;
+		border-bottom: 1rem solid black;
 
 		&__time-period {
-			grid-area: 2/3/3/4 ;
+			grid-area: 2/3/3/4;
 			width: 100%;
 			flex-direction: column;
 			justify-content: center;
 			align-items: center;
 			margin-right: 1rem;
-			gap:0.4rem ;
+			gap: 0.4rem;
 
 			&__item {
 				height: 2.2rem;
@@ -255,7 +268,7 @@
 		}
 
 		&__drop {
-			grid-area:1/2/2/4 ;
+			grid-area: 1/2/2/4;
 			width: 100%;
 			gap: 0.5rem;
 			justify-content: flex-end;
@@ -265,27 +278,24 @@
 				font-size: 0.9rem;
 			}
 
-			&__reload{
+			&__reload {
 				margin-right: 0rem;
 			}
 			&__crypto {
 				width: 8rem;
 
-				& input[for="crypto"]{
+				& input[for="crypto"] {
 					font-size: 0.8rem;
 				}
 				&__list {
 					width: 7rem;
 				}
 			}
-
-			
 		}
 
 		&__graph {
-			grid-area:2/1/3/3 ;
-			padding:0 0.9rem;
+			grid-area: 2/1/3/3;
+			padding: 0 0.9rem;
 		}
-
 	}
 }

@@ -34,7 +34,7 @@
 	grid-template-columns:calc(60% - (1.5rem / 2)) calc(40% - (1.5rem / 2));
 	grid-template-rows: 2.5rem 15fr 15fr 02fr;
 	gap: 0.5rem;
-	column-gap: 1.5rem;
+	// column-gap: 1.5rem;
 
 	&__title {
 		grid-area: 1/1/2/3;
