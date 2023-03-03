@@ -13,7 +13,7 @@ const PhoneMenu = () => {
 			} text-phoneMenu-${theme === "dark" ? "light" : "dark"}`}>
 
 			{	phoneMenuItems.map((item)=>{
-					return <PhoneMenuItem name={item.itemName} icon={item.icon}/>
+					return <PhoneMenuItem key={item.itemName} name={item.itemName} icon={item.icon}/>
 			})
 			}
 		</div>
