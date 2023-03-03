@@ -38,6 +38,9 @@
 	gap: 1rem;
 	row-gap: 1rem;
 
+	&__phonebar{
+		display: none;
+	}
 	&__currency-dropdown {
 		grid-area: 1/1/2/2;
 		@include display-flex(row, center, center);
@@ -182,6 +185,15 @@
 		grid-template-rows: 12% 1fr 12%;
 		padding: 0.5rem;
 
+		&__phonebar{
+			position: absolute;
+			display: flex;
+			width: 97%;
+			top: 0;
+			height: 3.5rem;
+			z-index: 55;
+		}
+
 		&__time-period {
 			grid-area: 3/1/4/3;
 			width: 100%;
@@ -201,6 +213,7 @@
 			width: 100%;
 			gap: 0.5rem;
 			justify-content: flex-end;
+			z-index: 60;
 
 			& > div {
 				height: 2rem;

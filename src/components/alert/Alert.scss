@@ -14,3 +14,9 @@
 .show_alert{
     transform: translate(0rem);
 }
+
+@media only screen and (max-width:600px){
+    .alert{
+        bottom:6rem;
+    }
+}

@@ -29,6 +29,11 @@
 @media only screen and (max-width: 600px) {
 	.market-cap {
 		grid-area: 2/1/3/2;
+
+		&__items {
+		width:100%;
+		height: 100%;}
+
 	}
 }
 

@@ -126,6 +126,10 @@ const showCrypto = () => {
 			className={`chart bg-${theme === "light" ? "light" : "dark"} text-${
 				theme === "light" ? "dark" : "light"
 			}`}>
+			<div
+				className={`chart__phonebar bg-phoneMenu-${
+					theme === "light" ? "light" : "dark"
+				}`}></div>
 			<div className="chart__currency-dropdown">
 				<CurrencyDropdown />
 			</div>
@@ -204,9 +208,7 @@ const showCrypto = () => {
 				</div>
 			</div>
 			<div className="chart__graph">
-				<div className="chart__graph__layer">
-					Wait...
-				</div>
+				<div className="chart__graph__layer">Wait...</div>
 				<LineChart />
 			</div>
 		</div>

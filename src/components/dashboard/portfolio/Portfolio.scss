@@ -52,8 +52,22 @@ $--portfolio-pie-degree-2: 90deg;
 @media only screen and (max-width:600px){
 
 	.portfolio {
-		grid-area: 4/1/5/2;
+		// display: none;
+		// grid-area: 4/1/5/2;
+		position: fixed;
+		width: 100vw;
+		height: 43vh;
+		top: 0.1rem;
+		border-bottom: 1rem solid rgb(255, 246, 246);
+		justify-content: center;
+		z-index: -10;
+
 		&__head{
+			height: 2rem;
+		}
+
+		&__data{
+			height: 10rem;
 		}
 	}
 

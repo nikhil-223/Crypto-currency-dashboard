@@ -73,6 +73,7 @@
 }
 @media only screen and (max-width: 600px) {
 	.currency-dropdown {
+		z-index: 60;
 		grid-area: 1/1/2/2;
 		display: flex;
 		justify-content: center;

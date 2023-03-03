@@ -70,7 +70,7 @@ a {
 	transition: all 0.4s linear;
 }
 .bg-dropdown-light {
-	background-color: #efdddd;
+	background-color: #d4e2eb;
 	transition: all 0.4s linear;
 }
 
@@ -108,6 +108,23 @@ a {
 		background: #183e5e;
 	}
 }
+.bg-phoneMenu-light {
+	background: rgb(255, 255, 255);
+	transition: all 0.2s;
+	&__hover{
+		color: #EB455F;
+	}
+}
+
+.bg-phoneMenu-dark {
+	background:  hsl(213, 73%, 12%);
+	transition: all 0.2s;
+
+	&__hover{
+		color: #EB455F;
+	}
+}
+
 .bg-timePeriod-light {
 	background: #cee5e6;
 }
@@ -122,4 +139,12 @@ input{
 	:root{
 		font-size: 16px;
 	}
+	body{
+		// overflow: hidden;
+	}
+	.dashboard__overflow{
+	height: 90vh;
+	overflow: hidden;
 }
+}
+
