@@ -263,7 +263,7 @@
 		grid-template-rows: 15% 83%;
 		padding: 1rem;
 		gap: 0;
-		border-bottom: 1rem solid black;
+		border-bottom: 0.1rem solid rgba(74, 93, 112, 0.3);
 
 		&__time-period {
 			grid-area: 2/3/3/4;

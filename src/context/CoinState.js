@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 import CoinContext from "./CoinContext";
 
+import { AiFillHome } from "react-icons/ai";
+import { BsFillBarChartFill } from "react-icons/bs";
+import { RiPieChart2Fill } from "react-icons/ri";
+import { FaCoins } from "react-icons/fa";
+
 const CoinState = (props) => {
 	const [coinList, setCoinList] = useState([]);
 	const [coinListD, setCoinListD] = useState(coinList);
@@ -84,6 +89,13 @@ const CoinState = (props) => {
 	const [currencyListD, setCurrencyListD] = useState(currencyList);
 	const [timePeriod, setTimePeriod] = useState("1H");
 	const [timePeriodD, setTimePeriodD] = useState("1H");
+	const [phoneMenuItemActive, setPhoneMenuItemActive] = useState("Markets")
+	const [phoneMenuItems, setPhoneMenuItems] = useState([
+		{ itemName: "Home", icon: <AiFillHome /> },
+		{ itemName: "Markets", icon: <BsFillBarChartFill /> },
+		{ itemName: "Exchange", icon: <FaCoins /> },
+		{ itemName: "Portfolio", icon: <RiPieChart2Fill /> },
+	]);
 	const [timePeriodList, setTimePeriodList] = useState([
 		{ time: "1H" },
 		{ time: "1D" },
@@ -308,6 +320,10 @@ const CoinState = (props) => {
 				setAlert,
 				chartName,
 				setChartName,
+				phoneMenuItemActive,
+				setPhoneMenuItemActive,
+				phoneMenuItems,
+				setPhoneMenuItems,
 			}}>
 			{props.children}
 		</CoinContext.Provider>

@@ -45,7 +45,6 @@
 
     &>div{
         border-radius: 0;
-        border-bottom: 0.1rem solid rgba(11, 19, 27,0.3);
         box-shadow: 0rem 0rem 0rem 0rem rgba(16, 12, 12,0.5);
         transition: all 0s;
     }
@@ -64,8 +63,6 @@
 
     &>div{
         border-radius: 0;
-        border-bottom:0;
-        box-shadow: 0rem 0rem 0rem 0rem rgba(16, 12, 12,0.5);
     }
     }
 }

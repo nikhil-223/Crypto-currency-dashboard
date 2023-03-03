@@ -14,25 +14,26 @@ const CoinSearch = () => {
 		searchDropName,
 		setSearchDropName,
 		timePeriodList,
-		timePeriodD
+		timePeriodD,
 	} = useContext(CoinContext);
 	// modebtn
 	const setmode = () => {
 		setTheme(theme === "light" ? "dark" : "light");
-		let time_period_item = Array.from(
+		let time_period_items = Array.from(
 			document.getElementsByClassName("chart__time-period__item")
 		);
-		console.log(timePeriodD);
 		timePeriodList.map((item, index) => {
 			if (theme === "dark") {
-				time_period_item[index].style.background =
+				time_period_items[index].style.background =
 					item.time === timePeriodD ? "rgba(205, 88, 136, 0.5)" : "#cee5e6";
 			} else {
-				time_period_item[index].style.background =
+				time_period_items[index].style.background =
 					item.time === timePeriodD ? "rgba(205, 88, 136, 1)" : "#174d79";
 			}
 			return 0;
 		});
+
+
 	};
 
 	// search list
