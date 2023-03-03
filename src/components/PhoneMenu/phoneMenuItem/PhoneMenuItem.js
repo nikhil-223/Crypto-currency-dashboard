@@ -36,7 +36,7 @@ const PhoneMenuItem = (props) => {
 			style={
 				name === phoneMenuItemActive
 					? {
-							color: theme === "dark" ? "#af194e" : "#089595",
+							color: theme === "dark" ? "rgb(87 168 235)" : "#089595",
 					  }
 					: {}
 			}

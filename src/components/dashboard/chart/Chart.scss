@@ -76,12 +76,12 @@
 			height: 2.8rem;
 			border-radius: 0.4rem;
 			padding: 0.5rem 1rem;
-			box-shadow: 0.1rem 0.1rem 0.1rem 0 rgba(0, 0, 0, 0.5);
+			box-shadow: 0.1rem 0.1rem 0.1rem 0 rgba(41, 39, 39, 0.3);
 			@include display-flex(row, space-between, center);
 			cursor: pointer;
 
 			&:hover {
-				box-shadow: 0.15rem 0.15rem 0.25rem 0 rgba(0, 0, 0, 0.5);
+				box-shadow: 0.15rem 0.15rem 0.25rem 0 rgba(41, 39, 39, 0.3);
 			}
 		}
 

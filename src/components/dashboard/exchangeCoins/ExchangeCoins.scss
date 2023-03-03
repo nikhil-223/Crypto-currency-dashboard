@@ -56,11 +56,11 @@
 			padding: 0.5rem;
 			@include display-flex(row, space-between, center);
 			gap: 0.5rem;
-			box-shadow: 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.5);
+			box-shadow: 0.1rem 0.1rem 0.1rem rgba(41, 39, 39, 0.3);
 			cursor: pointer;
 
 			&:hover {
-				box-shadow: 0.13rem 0.13rem 0.2rem rgba(0, 0, 0, 0.5);
+				box-shadow: 0.13rem 0.13rem 0.2rem rgba(41, 39, 39, 0.3);
 			}
 			& input[for="sell"] {
 				font-size: 1rem;
@@ -101,12 +101,12 @@
 			width: 7rem;
 			border-radius: 0.3rem;
 			padding: 0.5rem;
-			box-shadow: 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.5);
+			box-shadow: 0.1rem 0.1rem 0.1rem rgba(41, 39, 39, 0.3);
 			cursor: pointer;
 			@include display-flex(row, space-between, center);
 
 			&:hover {
-				box-shadow: 0.13rem 0.13rem 0.2rem rgba(0, 0, 0, 0.5);
+				box-shadow: 0.13rem 0.13rem 0.2rem rgba(41, 39, 39, 0.3);
 			}
 
 			& input[for="buy"] {
