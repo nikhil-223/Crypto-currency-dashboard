@@ -105,7 +105,7 @@ ChartJS.register(
 		],
 	};
 
-	const x = window.matchMedia("(max-width: 500px)");
+	const x = window.matchMedia("(max-width: 600px)");
 	
 	let yticks;
 	let xticks;
