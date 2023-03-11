@@ -87,8 +87,8 @@ const CoinState = (props) => {
 	]);
 	
 	const [currencyListD, setCurrencyListD] = useState(currencyList);
-	const [timePeriod, setTimePeriod] = useState("1H");
-	const [timePeriodD, setTimePeriodD] = useState("1H");
+	const [timePeriod, setTimePeriod] = useState("1D");
+	const [timePeriodD, setTimePeriodD] = useState("1D");
 	const [phoneMenuItemActive, setPhoneMenuItemActive] = useState("Markets")
 	const [phoneMenuItems, setPhoneMenuItems] = useState([
 		{ itemName: "Home", icon: <AiFillHome /> },
@@ -97,7 +97,6 @@ const CoinState = (props) => {
 		{ itemName: "Portfolio", icon: <RiPieChart2Fill /> },
 	]);
 	const [timePeriodList, setTimePeriodList] = useState([
-		{ time: "1H" },
 		{ time: "1D" },
 		{ time: "1W" },
 		{ time: "1M" },
@@ -138,29 +137,31 @@ const CoinState = (props) => {
 		let subtime;
 		switch (chartRange) {
 			case "1H":
-				subtime = 60 * 60 * 1000;
+				subtime = '1';
 				break;
 			case "1D":
-				subtime = 24 * 60 * 60 * 1000;
+				subtime = '1';
 				break;
 			case "1W":
-				subtime = 7 * 24 * 60 * 60 * 1000;
+				subtime = '7';
 				break;
 			case "1M":
-				subtime = 31 * 24 * 60 * 60 * 1000;
+				subtime = '31';
 				break;
 			case "6M":
-				subtime = 24 * 60 * 60 * 31 * 6 * 1000;
+				subtime = '182';
 				break;
 			case "1Y":
-				subtime = 365 * 24 * 60 * 60 * 1000;
+				subtime = '365';
 				break;
 			default:
-				subtime = 60 * 60 * 1000;
+				subtime = '1';
 				break;
 		}
-		const rangeto = Date.now();
-		let rangefrom = rangeto - subtime;
+		// const rangeto = Date.now();
+		// let rangefrom = rangeto - subtime;
+
+
 		let found = "bitcoin";
 		let foundelement = coinList.find(
 			(element) => element.name === cryptoDropName
@@ -170,9 +171,7 @@ const CoinState = (props) => {
 		try {
 			// API Call for chart data
 			const response = await fetch(
-				`https://api.coingecko.com/api/v3/coins/${found}/market_chart/range?vs_currency=${currency}&from=${Math.floor(
-					rangefrom / 1000
-				)}&to=${Math.floor(rangeto / 1000)}`,
+				`https://api.coingecko.com/api/v3/coins/${found}/market_chart?vs_currency=${currency}&days=${subtime}&interval=hourly`,
 				{
 					method: "GET",
 					headers: {
